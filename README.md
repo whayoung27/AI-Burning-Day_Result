@@ -1,4 +1,4 @@
-# AI-Burning-Day_Result<br>
+# AI-Burning-Day_Final Result<br>
 
 ## ※ 결과물 제출 방법<br>
 * [개발분야][팀명][서비스명] File명 혹은 content에 기재해주세요. <br>

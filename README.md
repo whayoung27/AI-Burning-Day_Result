@@ -1,5 +1,8 @@
-# AI-Burning-Day_Result
+# AI-Burning-Day_Result<br>
 
-[ios/Android/Web 중 1][팀명][서비스명] File명 혹은 content에 기재해주세요.
-간단한 프로젝트 개요는 “readme.md”로 명시해주세요.
-개발 문서 혹은 발표 자료, 문서 들은 “docs” 디렉토리에 넣어서 업로드해주세요.
+## 결과물 제출 방법<br>
+* [개발분야][팀명][서비스명] File명 혹은 content에 기재해주세요. <br>
+ex) [ios][NAVER][서비스명]
+* 간단한 프로젝트 개요는 “readme.md”로 명시해주세요.<br>
+* 개발 문서 혹은 발표 자료, 문서 들은 “docs” 디렉토리에 넣어서 업로드해주세요.<br>
+* 2/14(금) 17:00에 결과물 제출을 마감합니다. 

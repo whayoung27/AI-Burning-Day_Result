@@ -10,3 +10,6 @@
 * Android Studio
 * Ubuntu 16.04
 * Java 8
+
+## 시연 영상
+docs에서 발표자료와 더불어 시연영상도 열람하실 수 있습니다.

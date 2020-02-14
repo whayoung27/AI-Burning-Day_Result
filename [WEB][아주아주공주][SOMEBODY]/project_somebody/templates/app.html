@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <style>
+    video{
+        position: relative;
+        width: 100%;
+        top: 0;
+        height: auto;
+    }
+    </style>
+
+      <!--Section: Cards-->
+      <section class="text-left padding-t">
+
+        <!--Grid row-->
+        <div class="row mb-4 wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-lg-8 col-md-12">
+
+            <div>
+
+              <!--Card image-->
+              <div class="view overlay">
+                <div class="embed-responsive-16by9 rounded-top">
+                    <video width="720" height="480" controls>
+                        <source src="{{ url_for('static', filename="uploads/"+up_file) }}" type="video/mp4">
+                    </video>
+                </div>
+              </div>
+
+              <!--Card content-->
+              <div class="card-body">
+                  <!--Title-->
+                  <h4 class="card-title">AI가 만든 댄스 뮤직비디오</h4>
+                  <a href="/" class="btn btn-primary btn-md float-right">다시 만들기</a>
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 border-left">
+
+            <!--Card-->
+            <div>
+
+              <!--Card content-->
+              <div>
+                <!--Title-->
+                  <div class="border-bottom">
+                      <h3 class="card-title padding-l font-weight-bold">사운드로그</h3>
+                  </div>
+                  <div class="padding-t">
+                      <h4 class="card-title padding-l">평가</h4>
+                      <h5 class="card-body padding-l">파워풀한 댄서!</h5>
+                  </div>
+                  <div class="padding-t">
+                      <h4 class="card-title padding-l" style="padding-bottom: 20px">활동적인 신체부위</h4>
+                      {% for i in soundlog %}
+                          <h5 class="padding-l">{{ i[0] + " : %d" % i[1] }}</h5>
+                      {% endfor %}
+                  </div>
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </section>
+      <!--Section: Cards-->
+{% endblock main%}

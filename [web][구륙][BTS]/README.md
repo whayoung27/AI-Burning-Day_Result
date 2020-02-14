@@ -12,6 +12,9 @@ ___
 유튜브 자동생성 영어 자막을 Sentence Boundary Detection(SBD), Papago NMT를 활용하여 한글 자막을 보여주는 웹 서비스.
 
 ___
+## Demo Link
+[Demo](http://49.50.166.105:18890/)
+___
 ## Reference
 * [node.js](https://nodejs.org/ko/)
 * [deepsegment](https://github.com/bedapudi6788/deepsegment)

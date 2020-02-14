@@ -9,7 +9,7 @@ by NAVER-AI-BURNING-DAY
 
 ![flow](readme/flow.png)
 
-**'무엇이든 찍어주세요 만물도감'**은 차량이나 식물 등의 사진을 찍어서 Naver AI service API의 **object detection**으로 대분류로 나온 값을 소분류를 나눈 뒤,  사진에 있는 사물에 대한 정보를 사용자에게 **Clova의 음성**으로 안내해줍니다. 그리고 이렇게 모은 수집함에서 Item들을 싸이월드의 **My room** 형식으로 꾸밀 수 있게 하였습니다.
+'**무엇이든 찍어주세요 만물도감**'은 차량이나 식물 등의 사진을 찍어서 Naver AI service API의 **object detection**으로 대분류로 나온 값을 소분류를 나눈 뒤,  사진에 있는 사물에 대한 정보를 사용자에게 **Clova의 음성**으로 안내해줍니다. 그리고 이렇게 모은 수집함에서 Item들을 싸이월드의 **My room** 형식으로 꾸밀 수 있게 하였습니다.
 
 서비스 사용 대상은 호기심이 왕성한 **어린이**들입니다. 지적 호기심 충족시킬 수 있는 서비스를 구축하여 학습에 도움을 줄 수 있다고 예상합니다. 알고 싶은 사물이 있을 때 사진을 촬영하면 음성으로 바로 안내해줄 수 있는 것이 저희가 구성한 서비스의 강점입니다.
 
@@ -17,15 +17,12 @@ by NAVER-AI-BURNING-DAY
 
 ## 작업환경
 
-PYTHON 3.7
-
-pip requirments
-
-flask 1.0.2
-
-pymysql
-
-MySQL80
+- Anaconda 4.8.0
+- PYTHON 3.7
+- pip requirments
+- flask 1.0.2
+- pymysql
+- MySQL80
 
 
 
@@ -35,7 +32,7 @@ MySQL80
 
 서비스의 Title을 보여줍니다.
 
-![intro](/intro.png)
+![intro](readme/intro.png)
 
 **root page**
 

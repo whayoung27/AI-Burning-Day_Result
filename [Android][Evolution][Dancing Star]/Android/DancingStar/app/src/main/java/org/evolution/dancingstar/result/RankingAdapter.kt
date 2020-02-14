@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import org.evolution.dancingstar.R
 
-class RankingAdapter (val context: Context, val rankinglist: ArrayList<ranking>) : BaseAdapter() {
+class RankingAdapter (val context: Context, val rankinglist: ArrayList<rank>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         /* LayoutInflater는 item을 Adapter에서 사용할 View로 부풀려주는(inflate) 역할을 한다. */

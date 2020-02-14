@@ -1,73 +1,3 @@
-# Dancing Star Backend
-
-### 1. Database - MongoDB
-
-##### Collection - Dancing 
-
-```json
-{
-  "id" : "Long",
-  "title" : "String",
-  "artist" : "String",
-  "videoPath" : "String",
-  "accuracySpots" : [{
-    "id" : "Long",
-    "time" : "String",
-    "poseSpots" : [
-      {
-        "SPOT_TPYE" : "enum",
-        "x" : "String",
-        "y" : "String",
-        "score" : "String"
-      },
-      {
-        "SPOT_TPYE" : "enum",
-        "x" : "String",
-        "y" : "String",
-        "score" : "String"
-      },
-      ...18개 좌표값
-    ]},
-    {
-    "id" : "Long",
-    "time" : "String",
-    "poseSpots" : [
-      {
-        "SPOT_TPYE" : "enum",
-        "x" : "String",
-        "y" : "String",
-        "score" : "String"
-      },
-      {
-        "SPOT_TPYE" : "enum",
-        "x" : "String",
-        "y" : "String",
-        "score" : "String"
-      },
-      ...18개 좌표값
-    ]},
-      ...초에 해당하는 좌표값들 ],
-  "consistencySpots" : [ accuracySpots와 형식 동일 ]
-}
-```
-##### Collection - Ranking
-
-```json
-{
-  "id" : "Long",
-  "dancingId" : "Long",
-  "nickName" : "String",
-  "userVideoPath" : "String",
-  "registerTime" : "String",
-  "faceScore" : "Integer",
-  "gazeScore" : "Integer",
-  "consistencyScore" : "Integer",
-  "accuracyScore" : "Integer",
-  "comboScore" : "Integer",
-  "totalScore" : "Integer"
-}
-```
-
 ### **Response - default**
 
 ```json
@@ -138,6 +68,42 @@ ncloud poseEstimation or FaceRecognition 사용 중 발생하는 오류
 ```
 
 java에서 python 파일 실행 중 값 처리에 대한 에러
+
+
+
+
+
+## **[post] {IP address}:8080/**dancing/score_mock
+
+### Request
+
+```json
+{
+	"nickName" : "유저 닉네임",
+	"danceId" : "해당하는 dance ID"
+}
+```
+
+
+
+### Response
+
+```json
+{
+    "status": 200,
+    "message": "score 계산 완료",
+    "response": {
+        "faceScore": 1000,
+        "gazeScore": 900,
+        "consistencyScore": 280,
+        "accuracyScore": 8005,
+        "comboScore": 1400,
+        "totalScore": 11585
+    }
+}
+```
+
+
 
 
 
@@ -3509,7 +3475,4 @@ java에서 python 파일 실행 중 값 처리에 대한 에러
     }
 }
 ```
-
-
-
 

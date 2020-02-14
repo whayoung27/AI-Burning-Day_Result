@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ga
+data:
+  DB_HOST: whale.eunchan.com
+  DB_PORT: "9354"
+  DB_USER: uBVj64aCvFEMtb
+  DB_PASSWORD: Sn6KNYWrQDCn68
+  DB_NAME: postgres

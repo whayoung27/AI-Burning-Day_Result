@@ -275,7 +275,7 @@ function User({ user }) {
   let output_trans = '';
   if (user.feedback) {
     output = user.comprehanded;
-    output_trans = user.translated;
+    output_trans = "이런 표현은 어때?";
   }
   else{
     output = user.user_intention_translated;
@@ -299,8 +299,8 @@ function User({ user }) {
         </LogShowBlock>
         <LogShowBlock>
           <BubbleLeft>
-            <ReturnOutput value={output} />
             <ReturnUserIntendTrans value={output_trans} />
+            <ReturnOutput value={output} />
           </BubbleLeft>
         </LogShowBlock>
       </PageStyle>

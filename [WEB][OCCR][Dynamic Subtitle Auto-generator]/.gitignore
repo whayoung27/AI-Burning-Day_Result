@@ -1,0 +1,11 @@
+backend/.env
+*/*.mp4
+backend/static/*.mp4
+backend/static/*
+backend/data/*
+backend/data2/*
+backend/data/*.jpg
+backend/__pycache__/*
+backend/__pycache__
+*/.DS_Store
+.DS_Store

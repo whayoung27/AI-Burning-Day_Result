@@ -1,4 +1,4 @@
-# naver2020
+# Service
 
 Backend
 Django framework를 사용해 개발했습니다. Backend로는 sqlite3을 사용했습니다. 서버 내의 앱은 management 하나로 구성되어 있습니다.

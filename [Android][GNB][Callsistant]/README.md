@@ -7,9 +7,11 @@
 * 청각/언어 장애인 분들 뿐만아니라 공공장소 등 소리내어 전화하기 곤란한 상황에서 유용하게 사용할 수 있도록 제작하였습니다.
 
 ## 작업환경
-* Android Studio
-* Ubuntu 16.04
-* Java 8
+* App
+  * Android Studio
+* Server
+  * Ubuntu 16.04
+  * Java 8
 
 ## 시연 영상
 docs에서 발표자료와 더불어 시연영상도 열람하실 수 있습니다.

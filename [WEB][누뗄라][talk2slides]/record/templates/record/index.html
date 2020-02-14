@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'record/default.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .shadow-diffuse, .control-panel_button-holder_button{
+            box-shadow:0 1px 1px rgba(0,0,0,0.08),
+            0 2px 2px rgba(0,0,0,0.12),
+            0 4px 4px rgba(0,0,0,0.16),
+            0 8px 8px rgba(0,0,0,0.2)
+        }
+        .container{
+            width: 100%;
+        }
+        .template-list{
+            width: 100%;
+            margin-top: 30px;
+            margin-left: 30px;
+            display:flex;
+            align-items: stretch;
+        }
+        .template-list-container{
+            width: 60%;
+        }
+        .template-list-container-img{
+            width: 50%;
+            transition: all .2s ease-in-out;
+        }
+        .template-list-container-img:hover {
+            transform: scale(1.2);
+        }
+        .main-view {
+            display: flex;
+            flex-direction: row;
+        }
+        .current-template {
+            width:60%;
+            align-self: center;
+        }
+        .template-img{
+            margin-top: 2%;
+            margin-left: 10%;
+            width: 100%;
+        }
+        .control-panel {
+            width:25%;
+            margin-left: 5%;
+            overflow: hidden;
+            display: flex;
+        }
+        .control-panel_button-holder{
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: stretch;
+        }
+        .control-panel_button-holder_button{
+            background: white;
+            height: 50px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.15s ease-in-out;
+            font-size: 20px;
+        }
+        .control-panel_button-holder_button:disabled{
+        }
+        .control-panel_button-holder_button:hover:enabled{
+            background: #faf5e4;
+            color:black;
+            cursor: pointer;
+        }
+
+        .control-panel_button-holder_button-wrapper{
+            display: flex;
+            height: 50%;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-recording{
+            background: #339c33;
+            color: white;
+        }
+        .button-finished{
+            background: #eeeeee;
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+    </div>
+    <div class="content">
+        <div class="template-list">
+            {% for template in template_filenames %}
+            {% load static %}
+            <a class="template-list-container" href ="{% url 'record:index' template %}">
+                <img type="image" class="template-list-container-img shadow-diffuse" src="{% static 'record/'|add:template|add:'.jpg' %}">
+            </a>
+            {% endfor %}
+        </div>
+        <div class="main-view">
+            <div class="current-template">
+                {% load static %}
+                <img class="template-img shadow-diffuse" src="{% static 'record/'|add:current_template|add:'.jpg' %}" alt="Template Slide">
+            </div>
+            <div class="control-panel">
+                <div class="control-panel_button-holder">
+                    {% for button in buttons %}
+                    <div class="control-panel_button-holder_button-wrapper">
+                        <button class="control-panel_button-holder_button" id="{{ button }}">{{ button }}</button>
+                    </div>
+                    {% endfor %}
+                    <div class="control-panel_button-holder_button-wrapper">
+                        <button class="control-panel_button-holder_button" id="done_button">Done</button>
+                    </div>
+                    <!--div class="control-panel_button-holder_button-wrapper">
+                        <button class="control-panel_button-holder_button" id=record>Start</button>
+                    </div>
+                    <div class="control-panel_button-holder_button-wrapper">
+                        <button class="control-panel_button-holder_button" id=record>Start</button>
+                    </div-->
+                    <!--div class="control-panel_button-holder_button-wrapper">
+                        <button class="control-panel_button-holder_button" id=stopRecord disabled>Stop</button>
+                    </div-->
+                    <!--audio id="recordedAudio"></audio-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var blobs=[null,null];
+    var current_i=-1;
+    navigator.mediaDevices.getUserMedia({audio:true})
+        .then(stream => {handlerFunction(stream)})
+
+
+    function handlerFunction(stream) {
+        rec = new MediaRecorder(stream);
+        rec.ondataavailable = e => {
+            audioChunks.push(e.data);
+            if (rec.state == "inactive"){
+                let blob = new Blob(audioChunks,{type:'audio/mpeg-3'});
+                //recordedAudio.src = URL.createObjectURL(blob);
+                //recordedAudio.controls=true;
+                //recordedAudio.autoplay=true;
+                console.log(current_i);
+                console.log(blob);
+                blobs[current_i]=blob;
+                //sendData(blob)
+            }
+        }
+    }
+    function sendData(blob){
+        console.log(blob);
+        var xhttp = new XMLHttpRequest();
+        //TODO: Hardcoded 'localhost:8000' should change
+        xhttp.open("POST", "http://localhost:8000/record/receive", true);
+        var data = new FormData();
+        data.append('data1', blobs[0], 'audio_blob1');
+        data.append('data2', blobs[1], 'audio_blob2');
+        data.append('template', '{{ current_template }}');
+        data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+        xhttp.send(data);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+             }
+        };
+    }
+
+    var buttons = document.getElementsByClassName("control-panel_button-holder_button");
+    for (let i=0; i< buttons.length; i++){
+        buttons[i].onclick = e => {
+            console.log(i);
+            current_i = i;
+            if (!buttons[i].classList.contains('button-recording')){
+                buttons[i].classList.add('button-recording');
+                audioChunks = [];
+
+                rec.start();
+            }else{
+                buttons[i].disabled = false;
+                buttons[i].classList.remove('button-recording');
+                buttons[i].classList.add('button-finished');
+                rec.stop();
+            }
+        }
+    }
+    done_button.onclick = e => {
+        console.log("done");
+        for (let j = 0; j< 2; j++){
+            console.log("beforesent");
+            if (blobs[j]!= null){
+                console.log("sent");
+                sendData(blobs[j]);
+            }
+        }
+    }
+    /*record.onclick = e => {
+        console.log('I was clicked')
+        if (!record.classList.contains('button-recording')){
+            record.classList.add('button-recording');
+            audioChunks = [];
+            rec.start();
+        }else{
+            record.disabled = false;
+            record.classList.remove('button-recording');
+            record.classList.add('button-finished');
+            rec.stop();
+        }
+
+    }*/
+</script>
+</html>

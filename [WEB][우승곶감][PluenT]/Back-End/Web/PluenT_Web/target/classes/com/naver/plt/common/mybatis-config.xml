@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.naver.plt.users.UserVO" alias="user"></typeAlias>
+		<typeAlias type="com.naver.plt.lecture.LectureVO" alias="lecture"></typeAlias>
+		<typeAlias type="com.naver.plt.link.LinkVO" alias="link"></typeAlias>
+		<typeAlias type="com.naver.plt.video.VideoVO" alias="video"></typeAlias>
+		<typeAlias type="com.naver.plt.script.ScriptVO" alias="script"></typeAlias>
+	</typeAliases>
+
+</configuration>

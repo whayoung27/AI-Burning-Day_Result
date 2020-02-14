@@ -37,7 +37,8 @@ Dependency를 모두 설치한 뒤, 메인 폴더에 들어가서
 Note
 -
 현재 버전에서는 음성을 녹음하면 해당 내용을 기반으로 마크다운 파일이 생성됩니다.
-향후 자동화를 시킬 예정이나, 현재는 Darkslide generator를 이용해 생성된 markdown file을 슬라이드로 변환해주어야합니다.
+향후 자동화를 시킬 예정이나, 현재는 Darkslide generator를 이용해 생성된 markdown file을 슬라이드로 변환해주어야합니다.  
+업로드 문제로 해당 repository 확인이 어려울시 원본 프로젝트 repository를 이 [링크](https://github.com/coolutony/talk2slides)에서 확인할 수 있습니다.  
 
 팀명: 누뗄라
 -

@@ -6,8 +6,11 @@ import requests
 import tensorflow.keras
 from PIL import Image, ImageOps
 import numpy as np
+from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
+run_with_ngrok(app)
+
 client_id = "w8o6iqp9z4"
 client_secret = "H9N0Ty3G7LZgGUdtoVolTNXzTO08R5QVHxm5hoga"
 
@@ -230,4 +233,4 @@ def storage():
 
 if __name__ == '__main__':
     #서버 실행
-    app.run(debug = True,host='0.0.0.0')
+    app.run()

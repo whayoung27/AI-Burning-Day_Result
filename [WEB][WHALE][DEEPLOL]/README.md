@@ -1,0 +1,92 @@
+# 딥롤
+
+인공지능 백엔드를 기반으로 롤 챔피언/아이템 등을 추천해주는 시스템.
+
+### 프로젝트 특징
+- 쿠버네티스를 기반으로 안정적인 서비스 CI/CD를 야기하였습니다.
+- 유전 알고리즘을 통해 수많은 조합의 해를 효율적으로 탐색하였습니다.
+- DNN 학습을 위해 효과적인 데이터 가공을 고려하였습니다. (아이템 조합)
+- 크롤러를 queue 기반으로 구성하여 fail-over 하게 구성하였습니다. (중간에 끊겨도 다시 이어작업할 수있음, API Rate Limit에 구애받지않음 등)
+
+### 주소
+- http://deeplol.euncan.com
+
+### 동영상
+- 쿠버네티스 롤링업데이트 영상 : https://youtu.be/y2DR6pUQl7A
+- 유전알고리즘 시연 영상 : https://youtu.be/zMZbgyFK_ls
+
+### 분야별 설명
+
+# Deep LoL item recommendation (DNN)
+
+본인의 아이템 트리와 본인을 포함한 챔피언 10가지를 뉴럴넷의 입력으로 사용합니다.
+현재 나의 아이템 트리 상황과 아군과 적군의 챔피언의 종류에 따라 현 상황에 맞는 아이템을 추천합니다.
+
+## 1. DB 가공
+
+Riot API를 통해 크롤링한 DB에서 필요한 정보들을 추출하였습니다.
+match data에서 아이템 정보와 챔피언 정보만을 가져와 이긴 팀에 속한 챔피언을 기준으로 데이터를 가공했습니다.
+
+number of data : 160,000
+
+## 2. Deep Learning
+
+### input
+
+* 10 Champion IDs
+* 6 Item IDs
+
+### output
+
+* 1 Item
+
+---
+
+##딥러닝 학습을 위한 
+
+### input
+
+* 게임 종료 후 이긴 유저의 데이터를 사용.
+* 완성된 6가지의 아이템 트리중 하나씩 제거하며 데이터 가공.
+* embedding을 통해 데이터 압축.
+
+### target
+
+* 제거한 아이템을 학습할 때 target으로 이용.
+
+## 3. 결과
+
+결론적으로, 성능이 좋지 않았습니다.
+LoL에서 146가지의 챔피언, 243가지의 아이템의 밸런스를 거의 완벽하게 맞춰 놓지 않았나 싶습니다.
+새로운 DB를 크롤링하여 다른 방법으로 데이터를 가공, 추출하면 성능이 나아질 것으로 예상했습니다.
+하지만 딥러닝 프로젝트 특성상 많은 시간이 필요해서 실천에 옮기지는 못했습니다.
+연쇄적으로 특성 추출하는 부분에서 사용할 NAVER OCR API도 사용하지 못하게 되었습니다.
+
+
+# Genetic Algorithm 설명
+
+- Presentation : Integer & Permutate encoding
+- Chromosome : 길이가 5인 순열, 각 요소는 챔피언의 고유 아이디.
+- Fitness : 현재 챔피언이 참여한 게임의 승률
+- Operators
+    - Selection
+        - 현재의 population에서 부모 chromosomes를 선택하는 방법.
+        - Roulette Wheel 기법을 사용.
+            - Chromosome의 fitness에 따라 확률적으로 우수한 chromosome을 선택.
+    - Crossover
+        - 두 개의 chromsome을 결합하는 방법.
+        - 우수한 chromosome을 유지하는 방법.
+        - PMX 기법을 사용.
+            - 순열 인코딩의 chromosom에 적합.
+    - Mutation
+        - 현재의 chromsome에서 일정 확률로 값을 변경하는 방법.
+        - 탐색 공간을 넓히기 위한 방법.
+        - Flip 기법을 사용.
+            - 현재 chromosome에 존재하는 챔피언 한 개를 다른 챔피언으로 변경함.
+    - Replacement
+        - 현재의 population의 일부 chromosome을 새로운 chromosome으로 변경하는 방법.
+        - Population의 평균 fitness를 향상시키기 위한 방법.
+        - Worst 또는 Best chromosome을 대체하는 기법을 사용.
+            - 80% 의 확률로 Worst 를 대체.
+            - 20% 의 확률로 Best 를 대체.
+            - Best를 대체하는 이유는, 이른 수렴을 방지하기 위함.

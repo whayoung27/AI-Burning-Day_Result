@@ -14,5 +14,5 @@ Download
 https://drive.google.com/file/d/1yC6kNSskt6nX-9ndo8WNGmN9j2D3odqo/view?usp=sharing
 
 <div>
-<img src="https://user-images.githubusercontent.com/34572783/74510955-3560d700-4f48-11ea-8296-6c2a21028d62.jpeg", style="height:50%;width:50%">
+<img src="https://user-images.githubusercontent.com/34572783/74510955-3560d700-4f48-11ea-8296-6c2a21028d62.jpeg", style="height:20%;width:20%">
 </div>

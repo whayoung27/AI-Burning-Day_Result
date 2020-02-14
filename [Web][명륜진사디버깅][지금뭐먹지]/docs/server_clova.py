@@ -5,17 +5,13 @@ import urllib
 from bs4 import BeautifulSoup
 import json
 import random
-
-
 import pandas as pd
 import numpy as np
-import random
 from datetime import datetime
 import calendar
 import cx_Oracle
 from sqlalchemy import types, create_engine
 import os
-from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from urllib import parse
 
@@ -114,36 +110,6 @@ def crawler(gu,dong,food):
     text_list.append([food_rank[0],food_menu[0],food_feature[0],food_address[0][3:],food_img])
 
     return text_list[0]
-# def processDialog(req):
-# #     req=json.dumps(req, indent=4,ensure_ascii=False)
-#     answer=req['queryResult']['fulfillmentText']
-#     intentName=req['queryResult']['intent']['displayName']
-    
-    
-#     if intentName=='query':
-#         word=req['queryResult']['parameters']['any']
-#         text=getTerms(word)[0]
-#         res={'fulfillmentText': text}
-
-#     elif intentName=='Weather':
-#         date=req['queryResult']['parameters']['date']
-#         geo_city=req['queryResult']['parameters']['geo-city']
-#         info=getWeather(geo_city)
-# #         res={ 'fulfillmentText'  :   f"{geo_city} 날씨정보 : {info['temp']} / {info['desc']}"  }
-            
-        
-    
-#     elif intentName=='order2':
-#         params=req['queryResult']['parameters']['food_number']
-#         price={"짜장면":6000,"짬뽕":8000,"탕수육":15000,"깐풍기":30000,"유산슬":20000}
-#         output=[food.get('number-integer',1)*price[food['food']] for food in params]
-        
-        
-#         res={'fulfillmentText':"%.i 원 입니다."%int(sum(output))}
-#     else:
-#         res={'fulfillmentText':answer}
-#     return res
-
 
 
 
@@ -172,9 +138,6 @@ def review():
 @app.route('/recommend', methods=['POST',"GET"])
 def recommend():
     
-#     if request.method=='GET':
-#         a='명륜진사갈비'
-#     else:        
     rec=recommend_u(0)
     print(rec)
 

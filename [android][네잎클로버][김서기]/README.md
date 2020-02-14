@@ -1,19 +1,19 @@
 # naverBurningDay
 
 ### 목차
-1. 팀 소개(#네잎클로버-Team-Member)
-2. Android(#Android)
-3. REST API Reference(#REST-API-Reference)
-4. NLP(#NLP)
+[1. 팀 소개](#네잎클로버-Team-Member)
+[2. Android](#Android)
+[3. REST API Reference](#REST-API-Reference)
+[4. NLP](#NLP)
 
 # SecretaryKim\_김서기 (NAVER AI BURNINGDAY 2020)
 
 ## 네잎클로버 Team Member
 
-- [김태형](https://github.com/KimTaeHyeong17, "KimTaeHyeong Repo") Android Engineer
-- [장유리](https://github.com/JangYuri, "JangYuri Repo") Server Engineer
-- [정진호](https://github.com/zzzinho, "zzzinho Repo") Machine Learning Engineer
-- [양진화]() Product Designer
+- 김태형 [KimTaeHyeong Repo](https://github.com/KimTaeHyeong17) Android Engineer
+- 장유리 ["JangYuri Repo"](https://github.com/JangYuri) Server Engineer
+- 정진호 ["zzzinho Repo"](https://github.com/zzzinho) Machine Learning Engineer
+- 양진화 Product Designer
 
 ### 협업툴
 - 피그마, 제플린, 트렐로

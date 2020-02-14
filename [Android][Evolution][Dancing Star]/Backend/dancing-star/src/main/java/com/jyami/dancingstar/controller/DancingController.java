@@ -5,7 +5,9 @@ import com.jyami.dancingstar.domain.Dancing;
 import com.jyami.dancingstar.dto.ResponseDto;
 import com.jyami.dancingstar.dto.dacing.DanceScoreReqDto;
 import com.jyami.dancingstar.dto.dacing.DanceScoreResDto;
+import com.jyami.dancingstar.dto.ranking.RankingSaveReqDto;
 import com.jyami.dancingstar.service.DancingService;
+import com.jyami.dancingstar.service.RankingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +27,7 @@ import java.util.List;
 public class DancingController {
 
     private final DancingService dancingService;
+    private final RankingService rankingService;
 
     @RequestMapping(path = "score_test", method = RequestMethod.POST,
             consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -53,9 +56,19 @@ public class DancingController {
     public ResponseEntity getUserScore(@RequestBody DanceScoreReqDto danceScoreReqDto) throws IOException {
 
         String nickName = danceScoreReqDto.getNickName();
-//        DanceScoreResDto dancingScore = dancingService.getDancingScore();
 
         DanceScoreResDto dancingScore = dancingService.getDancingScore();
+
+        RankingSaveReqDto rankingSaveReqDto = RankingSaveReqDto.builder()
+                .dancingId("5e46368de20ac15c8b8ac2d0")
+                .totalScore(dancingScore.getTotalScore())
+                .nickName(nickName)
+                .userVideoPath("")
+                .build();
+
+        rankingService.saveRankingList(rankingSaveReqDto);
+
+
         ResponseDto<DanceScoreResDto> score = ResponseDto.of(HttpStatus.OK, "score 계산 완료", dancingScore);
 
         return ResponseEntity.ok().body(score);

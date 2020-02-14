@@ -58,10 +58,6 @@ public class DancingService {
 
         Dancing userDancing = getDancingDataFromVideo(saveDanceReqDto);
 
-//        Integer accuracyScoreForCompare = getAccuracyScoreForCompare(userDancing, originalDancing);
-//        Integer consistencyScoreForCompare = getConsistencyScoreForCompare(userDancing, originalDancing);
-
-
         List<String> accuracyScoreForCompare = getAccuracyScoreForCompare(userDancing, originalDancing);
         DanceScoreResDto accuracyScore = getAccuracyScore(accuracyScoreForCompare);
 
@@ -176,10 +172,8 @@ public class DancingService {
             consistencyList.add(getScoreForCompare(dancingSpot, dancingSpot1));
         }
 
-//        return  getTotalScore(consistencyList);
         return consistencyList;
     }
-
 
     private String getScoreForCompare(DancingSpot user, DancingSpot origin){
         try {

@@ -20,20 +20,22 @@ class ResultActivity : AppCompatActivity() {
 
     lateinit var rankingAdapter: RankingAdapter
 
-    val ranking = arrayListOf<ranking>()
+    val ranking = arrayListOf<rank>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+
+        rankingAdapter = RankingAdapter(this, ranking)
+        listview_ranking.adapter = rankingAdapter
         val myJson = JSONObject()
         val requestBody = myJson.toString()
 
         // TODO
 
-        //score 가져오
-/*
-        val url = "http://10.83.32.245:9090/score"
+        //score 가져오기
+        /*val url = "http://10.83.32.245:9090/score"
 
         val testRequest = object : StringRequest(Method.GET, url ,
                 Response.Listener { response ->
@@ -67,14 +69,12 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
-        Volley.newRequestQueue(this).add(testRequest)
-        */
+        Volley.newRequestQueue(this).add(testRequest)*/
 
 
 
         // ranking 띄우기
 
-        /*
 
         val rankingurl = "http://10.83.32.245:9090/ranking"
 
@@ -91,13 +91,13 @@ class ResultActivity : AppCompatActivity() {
                             var score = result.getInt("totalScore").toString()
                             var videopath = result.getString("userVideoPath")
 
-                            var temp = ranking(nickname = name, score = score)
+                            var temp = rank(nickname = name, score = score)
 
                             ranking.add(temp)
                             Log.d("this", "$temp")
                         }
 
-
+                        rankingAdapter.notifyDataSetChanged();
                     }else{
                         Toast.makeText(this, json_response["message"].toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -115,23 +115,19 @@ class ResultActivity : AppCompatActivity() {
         }
 
         Volley.newRequestQueue(this).add(testRequest2)
-        */
 
 
-        var temp = ranking(nickname = "competitor", score = "2938")
+        /*var temp = ranking(nickname = "competitor", score = "2938")
         ranking.add(temp)
         ranking.add(temp)
         ranking.add(temp)
         ranking.add(temp)
         ranking.add(temp)
         ranking.add(temp)
-        ranking.add(temp)
-
+        ranking.add(temp)*/
 
 
 
-        rankingAdapter = RankingAdapter(this, ranking)
-        listview_ranking.adapter = rankingAdapter
 
 
         result_btn_retry.setOnClickListener {

@@ -14,6 +14,7 @@ ___
 ___
 ## Demo Link
 [Demo](http://49.50.166.105:18890/)
+현재 데모 사이트는 유튜브 영상 길이 5분 이하에서 원활하게 동작합니다.
 ___
 ## Reference
 * [node.js](https://nodejs.org/ko/)

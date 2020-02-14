@@ -96,7 +96,7 @@ public List<String> splitText(String org_text){
 	{
 
 		System.out.println(button);
-		session.removeAttribute("content");
+		//session.removeAttribute("content");
 		ModelAndView mav = new ModelAndView();
 		ScriptVO trans = new ScriptVO();
 		List<ScriptVO> trans_list = new ArrayList<ScriptVO>();
@@ -116,6 +116,7 @@ public List<String> splitText(String org_text){
 			StringBuilder all = new StringBuilder( vo.getContent());
 			List<String> splited = splitText(all.toString());
 			mav.addObject("content",vo.getContent());
+			mav.addObject("title",vo.getTitle());
 			//String tmp = "";
 			
 			//all.indexOf("\n\n") != -1

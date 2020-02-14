@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context=".result.ResultActivity">
+
+    <TextView
+        android:id="@+id/result_tv_yourscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/extraboldnanumsquareround"
+        android:text="Your Score"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_tv_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="Accuracy"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_yourscore" />
+
+    <TextView
+        android:id="@+id/result_tv_accuracyscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_accuracy"
+        app:layout_constraintStart_toEndOf="@+id/result_tv_accuracy"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_accuracy" />
+
+    <TextView
+        android:id="@+id/result_tv_consistency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="Consistency"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/result_tv_accuracy"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_accuracy" />
+
+    <TextView
+        android:id="@+id/result_tv_consistencyscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_consistency"
+        app:layout_constraintEnd_toEndOf="@+id/result_tv_accuracyscore"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_consistency" />
+
+    <TextView
+        android:id="@+id/result_tv_confidency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="Confidency"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/result_tv_consistency"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_consistency" />
+
+    <TextView
+        android:id="@+id/result_tv_confidencyscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_confidency"
+        app:layout_constraintEnd_toEndOf="@+id/result_tv_consistencyscore"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_confidency" />
+
+    <TextView
+        android:id="@+id/result_tv_vibe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="Vibe"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/result_tv_confidency"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_confidency" />
+
+    <TextView
+        android:id="@+id/result_tv_vibescore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_vibe"
+        app:layout_constraintEnd_toEndOf="@+id/result_tv_confidencyscore"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_vibe" />
+
+    <TextView
+        android:id="@+id/result_tv_combo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="Combo"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/result_tv_vibe"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_vibe" />
+
+    <TextView
+        android:id="@+id/result_tv_comboscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:fontFamily="@font/lightnanumsquareround"
+        android:text="TextView"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_combo"
+        app:layout_constraintEnd_toEndOf="@+id/result_tv_vibescore"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_combo" />
+
+    <TextView
+        android:id="@+id/result_tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/extraboldnanumsquareround"
+        android:text="Total"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/result_tv_combo"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_combo" />
+
+    <TextView
+        android:id="@+id/result_tv_totalscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:fontFamily="@font/extraboldnanumsquareround"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/result_tv_total"
+        app:layout_constraintEnd_toEndOf="@+id/result_tv_comboscore"
+        app:layout_constraintTop_toTopOf="@+id/result_tv_total"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/result_btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Retry"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv_total" />
+
+    <Button
+        android:id="@+id/result_btn_reselect"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="92dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Reselect"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/result_btn_retry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/result_btn_retry"
+        app:layout_constraintTop_toTopOf="@+id/result_btn_retry"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/result_tv_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/extraboldnanumsquareround"
+        android:text="Ranking"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/result_sv_ranking"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_btn_retry"
+        app:layout_constraintVertical_bias="0.64" />
+
+    <ScrollView
+        android:id="@+id/result_sv_ranking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/listview_ranking"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"></ListView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

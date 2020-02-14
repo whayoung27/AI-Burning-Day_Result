@@ -33,4 +33,4 @@ http://10.83.32.215:9090/plt/login
    
 ## Testing Video Link
 
-https://drive.google.com/drive/folders/1rx3TZuMwo3AZVoqNW7ejC_FfGivfQ4-n
+https://drive.google.com/file/d/1Y3o0e1IYlbvO0DQlJSqhfN2m0olrHDUA/view?usp=sharing

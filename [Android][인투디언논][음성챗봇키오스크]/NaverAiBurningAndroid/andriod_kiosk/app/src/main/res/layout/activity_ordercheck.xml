@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrdercheckActivity"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/iv_mainActivity_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_logo"/>
+
+    <TextView
+        android:id="@+id/tv_orderCheckActivity_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="주문 확인"
+        android:textSize="40sp"
+        android:textColor="#0A6B22"
+        android:fontFamily="@font/americanob" />
+
+    <ImageView
+        android:id="@+id/iv_orderCheckActivity_bilge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_orderCheckActivity_title"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/img_bilge"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout1"
+        app:layout_constraintTop_toTopOf="@id/iv_orderCheckActivity_bilge"
+        app:layout_constraintStart_toStartOf="@id/iv_orderCheckActivity_bilge"
+        app:layout_constraintEnd_toEndOf="@id/iv_orderCheckActivity_bilge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_burgurNm"
+            app:layout_constraintStart_toStartOf="@+id/layout1"
+            app:layout_constraintTop_toTopOf="@id/layout1"
+            app:layout_constraintEnd_toStartOf="@+id/tv_orderCheckActivity_burgurCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="빅맥"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_burgurCount"
+            app:layout_constraintStart_toStartOf="@+id/layout1"
+            app:layout_constraintTop_toTopOf="@id/layout1"
+            app:layout_constraintEnd_toEndOf="@id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2개"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_burgurPrice"
+            app:layout_constraintStart_toEndOf="@+id/tv_orderCheckActivity_burgurCount"
+            app:layout_constraintTop_toTopOf="@id/layout1"
+            app:layout_constraintEnd_toEndOf="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11800원"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout2"
+        app:layout_constraintTop_toTopOf="@id/layout1"
+        app:layout_constraintStart_toStartOf="@id/iv_orderCheckActivity_bilge"
+        app:layout_constraintEnd_toEndOf="@id/iv_orderCheckActivity_bilge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_drinkNm"
+            app:layout_constraintStart_toStartOf="@+id/layout2"
+            app:layout_constraintTop_toTopOf="@id/layout2"
+            app:layout_constraintEnd_toStartOf="@+id/tv_orderCheckActivity_drinkCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="슈슈 버거"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_drinkCount"
+            app:layout_constraintStart_toStartOf="@+id/layout2"
+            app:layout_constraintTop_toTopOf="@id/layout2"
+            app:layout_constraintEnd_toEndOf="@id/layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1개"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+        <TextView
+            android:id="@+id/tv_orderCheckActivity_drinkPrice"
+            app:layout_constraintStart_toEndOf="@+id/tv_orderCheckActivity_drinkCount"
+            app:layout_constraintTop_toTopOf="@id/layout2"
+            app:layout_constraintEnd_toEndOf="@+id/layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11800원"
+            android:textSize="30sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <View
+        android:id="@+id/v_bar"
+        app:layout_constraintStart_toStartOf="@id/iv_orderCheckActivity_bilge"
+        app:layout_constraintTop_toBottomOf="@+id/layout2"
+        app:layout_constraintEnd_toEndOf="@id/iv_orderCheckActivity_bilge"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#707070"/>
+
+    <TextView
+        android:id="@+id/tv_totalWon"
+        app:layout_constraintEnd_toEndOf="@id/iv_orderCheckActivity_bilge"
+        app:layout_constraintTop_toBottomOf="@id/v_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="16dp"
+        android:text="원"
+        android:textSize="30sp"
+        android:textColor="#707070"
+        android:fontFamily="@font/americanol"/>
+
+    <TextView
+        android:id="@+id/tv_totalPrice"
+        app:layout_constraintEnd_toStartOf="@id/tv_totalWon"
+        app:layout_constraintTop_toBottomOf="@id/v_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="16700"
+        android:textSize="30sp"
+        android:textColor="#FD0505"
+        android:fontFamily="@font/americanol"/>
+
+    <TextView
+        android:id="@+id/tv_total"
+        app:layout_constraintEnd_toStartOf="@id/tv_totalPrice"
+        app:layout_constraintTop_toBottomOf="@id/v_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="40dp"
+        android:text="총"
+        android:textSize="30sp"
+        android:textColor="#707070"
+        android:fontFamily="@font/americanol"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

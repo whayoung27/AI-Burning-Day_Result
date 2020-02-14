@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MenuFragment1"
+    android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/iv_mainActivity_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/img_logo"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_mainActivity_shushuNm"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/tv_menuActivity_shushu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/v_bar_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="슈슈 버거"
+                android:textSize="30sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/americanol"/>
+
+            <View
+                android:id="@+id/v_bar_left"
+                app:layout_constraintTop_toBottomOf="@+id/tv_menuActivity_shushu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#D3D3D3"/>
+
+            <ImageView
+                android:id="@+id/iv_menuActivity_shushu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v_bar_left"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img_shushu"/>
+
+            <TextView
+                android:id="@+id/tv_menuActivity_shushuPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_menuActivity_shushu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="4,900원"
+                android:textColor="#F8B80A"
+                android:textSize="20sp"
+                android:fontFamily="@font/americanob"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_mainActivity_description1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_menuActivity_shushuPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_menuActivity_t1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="새우"
+                    android:textSize="20sp"
+                    android:textColor="#FD0505"
+                    android:fontFamily="@font/americanol"/>
+
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_menuActivity_t1"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_menuActivity_t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가 들어있어요!"
+                    android:textSize="20sp"
+                    android:textColor="#707070"
+                    android:fontFamily="@font/americanol"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_mainActivity_description1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_menuActivity_t3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="매콤 달콤"
+                    android:textSize="20sp"
+                    android:textColor="#FD0505"
+                    android:fontFamily="@font/americanol"/>
+
+                <TextView
+                    app:layout_constraintLeft_toRightOf="@+id/tv_menuActivity_t3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="한 맛이나요!"
+                    android:textSize="20sp"
+                    android:textColor="#707070"
+                    android:fontFamily="@font/americanol"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_mainActivity_bulNm"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/tv_menuActivity_bul"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="불고기 버거"
+                android:textSize="30sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/americanol"/>
+
+            <View
+                android:id="@+id/v_bar_right"
+                app:layout_constraintTop_toBottomOf="@+id/tv_menuActivity_bul"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#D3D3D3"/>
+
+            <ImageView
+                android:id="@+id/iv_menuActivity_bul"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v_bar_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img_bulgogi"/>
+
+            <TextView
+                android:id="@+id/tv_menuActivity_bulPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_menuActivity_bul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="4,900원"
+                android:textColor="#F8B80A"
+                android:textSize="20sp"
+                android:fontFamily="@font/americanob"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_mainActivity_description2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_menuActivity_bulPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_menuActivity_t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/americanol"
+                    android:text="불고기"
+                    android:textColor="#FD0505"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_menuActivity_t2"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_menuActivity_t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가 들어있어요!"
+                    android:textSize="20sp"
+                    android:textColor="#707070"
+                    android:fontFamily="@font/americanol"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_mainActivity_description2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_menuActivity_t4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="달콤"
+                    android:textSize="20sp"
+                    android:textColor="#FD0505"
+                    android:fontFamily="@font/americanol"/>
+
+                <TextView
+                    app:layout_constraintLeft_toRightOf="@+id/tv_menuActivity_t4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="한 맛이나요!"
+                    android:textSize="20sp"
+                    android:textColor="#707070"
+                    android:fontFamily="@font/americanol"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

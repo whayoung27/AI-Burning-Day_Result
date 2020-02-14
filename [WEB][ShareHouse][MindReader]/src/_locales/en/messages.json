@@ -1,0 +1,11 @@
+{
+	"APP_NAME": {
+		"message": "Mind Reader"
+	},
+	"APP_DESCRIPTION": {
+		"message": "용호형 작명 좀..."
+	},
+	"POPUP_TEXT": {
+		"message": "단축키 설명...(용호형 부탁해!)"
+	}
+}

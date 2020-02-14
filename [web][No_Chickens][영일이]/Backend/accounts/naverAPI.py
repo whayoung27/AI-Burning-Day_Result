@@ -84,8 +84,8 @@ def image_NAVER_AI(img_64):
 
     maerong = []
 
-    client_id = "AUXR0gR5NNTjtmnyWdDD" # 개발자센터에서 발급받은 Client ID 값
-    client_secret = "u6hHsOvN5g" # 개발자센터에서 발급받은 Client Secret 값
+    client_id = "NlmxERtXxumnUqV8ZeWn" # 개발자센터에서 발급받은 Client ID 값
+    client_secret = "fHT22NImgb" # 개발자센터에서 발급받은 Client Secret 값
     for key, val in receipt.items():
         if key == '':
             continue

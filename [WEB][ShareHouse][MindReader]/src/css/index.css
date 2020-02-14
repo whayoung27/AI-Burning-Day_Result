@@ -1,0 +1,7 @@
+#popupWrap{
+  width: 300px;
+}
+#popupWrap span{
+  color:orange;
+  background-color: antiquewhite;
+}

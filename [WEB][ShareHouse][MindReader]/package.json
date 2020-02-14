@@ -1,0 +1,73 @@
+{
+  "name": "mind_reader",
+  "version": "0.1.0",
+  "description": "HELP MHY!",
+  "private": true,
+  "scripts": {
+    "cleanup": "rm -rf dist && mkdir dist && cd dist && mkdir js",
+    "copy": "cp -rip src/_locales dist/ && cp -rip src/css dist/ && cp -rip src/fonts dist/ && cp -rip src/img dist/ && cp -rip src/index.html dist/ && cp -rip src/manifest.json dist/ && cp -rip src/js/index.js dist/js && cp -rip src/js/i18n-contents.js dist/js && cp -rip src/js/polyfill.min.js dist/js && cp -rip src/js/webcomponent.js dist/js && cp -rip src/js/font-awesome.js dist/js",
+    "build": "./node_modules/.bin/webpack --mode=none",
+    "build:prod": "./node_modules/.bin/webpack -p --optimize-minimize",
+    "build:clean": "npm run cleanup && npm run copy && npm run build",
+    "lint": "./node_modules/.bin/eslint",
+    "zip": "node zip.js",
+    "build:deploy": "npm run cleanup && npm run copy && npm run build:prod && npm run zip",
+    "watch": "./node_modules/.bin/webpack --hide-modules --colors --mode=none --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NaverBunningDay-ShareHouse/MindReader.git"
+  },
+  "author": "ShareHouse",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-new-target": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
+    "@storybook/html": "^5.1.11",
+    "@storybook/polymer": "^5.1.11",
+    "@webcomponents/shadycss": "^1.9.1",
+    "@webcomponents/webcomponentsjs": "^2.4.1",
+    "archiver": "^3.1.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "fs": "0.0.1-security",
+    "polymer-webpack-loader": "^2.0.3",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-bundle-analyzer": "^3.5.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "emotion": "^10.0.27",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2",
+    "postcss": "^7.0.18",
+    "mongoose": "^5.8.13",
+    "postcss-cli": "^6.1.3",
+    "proxy-polyfill": "^0.3.0",
+    "redux-zero": "^5.0.5",
+    "typescript": "^3.6.2",
+    "url-loader": "^2.1.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.2.7"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

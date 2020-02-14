@@ -1,0 +1,65 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_APP_NAME__",
+    "description": "__MSG_APP_DESCRIPTION__",
+    "version": "0.1.8",
+    "default_locale": "ko",
+    "icons": {
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "128": "img/icon128.png"
+        },
+        "default_title": "__MSG_APP_NAME__",
+        "default_popup": "index.html",
+        "use_navigation_bar": false,
+        "mobile_user_agent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "css": [
+                "css/content.css"
+            ],
+            "run_at": "document_start",
+            "all_frames": false
+        },
+        {
+            "matches": ["<all_urls>"],
+            "js": [
+                "js/polyfill.min.js",
+                "js/webcomponent.js",
+                "js/font-awesome.js",
+                "content.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": false
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "<all_urls>",
+        "storage",
+        "history",
+        "tabs"
+    ],
+    "commands": {
+        "toggle-favoriteTabs": {
+            "suggested_key": {
+                "default": "Alt+Shift+R",
+                "mac": "Alt+Shift+R"
+            },
+            "description": "Toggle MindReader(on/off)"
+        }
+    },
+    "web_accessible_resources": [
+        "css/content.css",
+        "fonts/Jua-Regular.ttf"
+    ]
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrdersuccessActivity"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/iv_mainActivity_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_logo"/>
+
+    <TextView
+        android:id="@+id/tv_orderSuccessActivity_thankyou"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="감사합니다"
+        android:textSize="40sp"
+        android:textColor="#707070"
+        android:fontFamily="@font/americanol"/>
+
+    <ImageView
+        android:id="@+id/iv_orderSuccessActivity_happy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_orderSuccessActivity_thankyou"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/img_happy"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_orderSuccessActivity_happy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/tv_orderSuccessActivity_t1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주문이 "
+            android:textSize="40sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+
+        <TextView
+            android:id="@+id/tv_orderSuccessActivity_t2"
+            app:layout_constraintLeft_toRightOf="@+id/tv_orderSuccessActivity_t1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완료"
+            android:textSize="40sp"
+            android:fontFamily="@font/americanol"
+            android:textColor="#FD0505"/>
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/tv_orderSuccessActivity_t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="되었습니다"
+            android:textSize="40sp"
+            android:textColor="#707070"
+            android:fontFamily="@font/americanol"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

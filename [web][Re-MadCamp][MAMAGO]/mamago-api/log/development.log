@@ -1,0 +1,2043 @@
+  [1m[35m (369.1ms)[0m  [1m[35mCREATE DATABASE "mamago_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (268.8ms)[0m  [1m[35mCREATE DATABASE "mamago_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2539910888449105185)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableExtensionForUuid (20200213190407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (32.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190407"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-13 19:04:51.690343"], ["updated_at", "2020-02-13 19:04:51.690343"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2539910888449105185)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2539910888449105185)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200213190613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "access_token" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190613"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2539910888449105185)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (135.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mamago_api_test"[0m
+  [1m[35m (330.9ms)[0m  [1m[35mCREATE DATABASE "mamago_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (18.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "dialogs" CASCADE[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "dialogs" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer DEFAULT 1 NOT NULL, "user_id" bigint, "complete" boolean DEFAULT FALSE NOT NULL, "feedback" boolean DEFAULT TRUE NOT NULL, "question_id" bigint, "original" text, "translated" text, "comprehanded" text, "user_intention" text, "user_intention_translated" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_question_id" ON "dialogs"  ("question_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_user_id" ON "dialogs"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."question_id" IS '대화를 시작하는 질문'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."original" IS '원본 문장'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."translated" IS '번역 문장'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."comprehanded" IS '예상한 의도'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention" IS '실제 의도'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention_translated" IS '의도한 문장'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer, "content" text DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMENT ON COLUMN "questions"."content" IS '질문의 내용'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "access_token" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200213191233)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200213190407),
+(20200213190613),
+(20200213191218);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-14 01:21:38.296130"], ["updated_at", "2020-02-14 01:21:38.296130"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-02-14 01:21:38.302495"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "8a033e0edf7fad48509fe02379e8c4264acfc90d"], ["created_at", "2020-02-14 01:21:38.306936"], ["updated_at", "2020-02-14 01:21:38.306936"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (130.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mamago_api_development"[0m
+  [1m[35m (128.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mamago_api_test"[0m
+  [1m[35m (346.0ms)[0m  [1m[35mCREATE DATABASE "mamago_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (269.3ms)[0m  [1m[35mCREATE DATABASE "mamago_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2539910888449105185)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableExtensionForUuid (20200213190407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190407"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200213190613)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "access_token" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190613"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20200213191218)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer, "content" text DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "questions"."content" IS '질문의 내용'[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213191218"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDialogs (20200213191233)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "dialogs" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer DEFAULT 1 NOT NULL, "user_id" bigint, "complete" boolean DEFAULT FALSE NOT NULL, "feedback" boolean DEFAULT TRUE NOT NULL, "question_id" bigint, "original" text, "translated" text, "comprehanded" text, "user_intention" text, "user_intention_translated" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_user_id" ON "dialogs"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_question_id" ON "dialogs"  ("question_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."question_id" IS '대화를 시작하는 질문'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."original" IS '원본 문장'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."translated" IS '번역 문장'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."comprehanded" IS '예상한 의도'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention" IS '실제 의도'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention_translated" IS '의도한 문장'[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213191233"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-14 01:22:20.142461"], ["updated_at", "2020-02-14 01:22:20.142461"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2539910888449105185)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (131.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mamago_api_development"[0m
+  [1m[35m (131.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mamago_api_test"[0m
+  [1m[35m (347.6ms)[0m  [1m[35mCREATE DATABASE "mamago_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (273.8ms)[0m  [1m[35mCREATE DATABASE "mamago_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2539910888449105185)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableExtensionForUuid (20200213190407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mprimary::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190407"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200213190613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "access_token" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213190613"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20200213191218)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer, "content" text DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "questions"."content" IS '질문의 내용'[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213191218"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDialogs (20200213191233)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "dialogs" ("id" bigserial primary key, "source" integer DEFAULT 0 NOT NULL, "target" integer DEFAULT 1 NOT NULL, "user_id" bigint, "complete" boolean DEFAULT FALSE NOT NULL, "feedback" boolean, "question_id" bigint, "original" text, "translated" text, "comprehended" text, "user_intention" text, "user_intention_translated" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_user_id" ON "dialogs"  ("user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_dialogs_on_question_id" ON "dialogs"  ("question_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."question_id" IS '대화를 시작하는 질문'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."original" IS '원본 문장'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."translated" IS '번역 문장'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."comprehended" IS '예상한 의도'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention" IS '실제 의도'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMENT ON COLUMN "dialogs"."user_intention_translated" IS '의도한 문장'[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213191233"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-14 01:24:51.298561"], ["updated_at", "2020-02-14 01:24:51.298561"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2539910888449105185)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/users" for ::1 at 2020-02-14 14:05:45 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[31mUnpermitted parameters: :format, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `generate_access_token'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "access_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "test@mamago.com"], ["password_digest", "$2a$12$JCRb8wCJS/h8XCeywdNQ/uFx0Emorgxt0NjQM30XMEtdtZDL3oPHm"], ["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["created_at", "2020-02-14 05:05:46.203517"], ["updated_at", "2020-02-14 05:05:46.203517"]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 294ms (Views: 2.5ms | ActiveRecord: 13.3ms | Allocations: 11096)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/api/users" for ::1 at 2020-02-14 14:22:38 +0900
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[31mUnpermitted parameters: :format, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 400 Bad Request in 404ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 188674)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /Users/sorr/Study/naver/mamago-api/bin/rails:9)
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /Users/sorr/Study/naver/mamago-api/bin/rails:9)
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /Users/sorr/Study/naver/mamago-api/bin/rails:9)
+DEPRECATION WARNING: SourceAnnotationExtractor is deprecated! Use Rails::SourceAnnotationExtractor instead. (called from <main> at /Users/sorr/Study/naver/mamago-api/bin/rails:9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/api/users" for ::1 at 2020-02-14 14:26:00 +0900
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[31mUnpermitted parameters: :format, :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 400 Bad Request in 229ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 4251)
+
+
+Started POST "/api/users" for ::1 at 2020-02-14 14:26:52 +0900
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[31mUnpermitted parameters: :format, :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."access_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 225ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 4248)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/api/users/login" for ::1 at 2020-02-14 14:36:27 +0900
+Processing by Api::UsersController#login as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 481)
+
+
+Started POST "/api/users/login" for ::1 at 2020-02-14 14:37:31 +0900
+Processing by Api::UsersController#login as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 7.2ms | Allocations: 477)
+
+
+Started POST "/api/users/login" for ::1 at 2020-02-14 14:38:11 +0900
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::UsersController#login as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 403 Forbidden in 12270ms (Views: 4.2ms | ActiveRecord: 7.2ms | Allocations: 57224)
+
+
+Started POST "/api/users/login" for ::1 at 2020-02-14 14:38:38 +0900
+Processing by Api::UsersController#login as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 5519ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 13300)
+
+
+Started POST "/api/users/login" for ::1 at 2020-02-14 14:40:24 +0900
+Processing by Api::UsersController#login as JSON
+  Parameters: {"email"=>"test@mamago.com", "password"=>"[FILTERED]", "user"=>{"email"=>"test@mamago.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mamago.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 200 OK in 4961ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 11726)
+
+
+Started GET "/" for ::1 at 2020-02-14 14:56:55 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sorr/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sorr/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.8ms | Allocations: 483)
+Completed 200 OK in 31ms (Views: 20.0ms | ActiveRecord: 0.0ms | Allocations: 3167)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 14:58:03 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 400 Bad Request in 23ms (Views: 1.2ms | ActiveRecord: 0.9ms | Allocations: 7097)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 14:59:20 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ (pry):4:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ (pry):5:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 400 Bad Request in 20977ms (Views: 629.8ms | ActiveRecord: 11.3ms | Allocations: 27843)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:00:25 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:14:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 400 Bad Request in 3532ms (Views: 779.4ms | ActiveRecord: 5.7ms | Allocations: 21507)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:00:54 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:14:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 400 Bad Request in 2471ms (Views: 502.8ms | ActiveRecord: 5.1ms | Allocations: 18121)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:01:18 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:14:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 400 Bad Request in 56512ms (Views: 437.9ms | ActiveRecord: 6.0ms | Allocations: 45057)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:02:19 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 400 Bad Request in 51ms (Views: 0.9ms | ActiveRecord: 7.4ms | Allocations: 11034)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDialog Load (5.0ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:03:15 +0900
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 400 Bad Request in 56ms (Views: 2.0ms | ActiveRecord: 7.4ms | Allocations: 10635)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:03:36 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:39:in `set_dialogs'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 400 Bad Request in 8631ms (Views: 0.9ms | ActiveRecord: 8.6ms | Allocations: 59200)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:03:59 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 41ms (Views: 1.1ms | ActiveRecord: 14.9ms | Allocations: 8970)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:05:56 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 1483)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:07:21 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.0ms | Allocations: 1466)
+
+
+Started POST "/api/dialogs" for ::1 at 2020-02-14 15:07:23 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+Started POST "/api/dialogs" for ::1 at 2020-02-14 15:07:23 +0900
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 400 Bad Request in 228ms (Views: 0.6ms | ActiveRecord: 8.5ms | Allocations: 197292)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 400 Bad Request in 186ms (Views: 1.4ms | ActiveRecord: 178.2ms | Allocations: 183423)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Create (2.1ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "how was your day?"], ["created_at", "2020-02-14 06:08:07.291466"], ["updated_at", "2020-02-14 06:08:07.291466"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:08:34 +0900
+Processing by Api::DialogsController#index as JSON
+Started POST "/api/dialogs" for ::1 at 2020-02-14 15:08:34 +0900
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mDialog Load (1.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 2.8ms | Allocations: 2453)
+
+
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (2.4ms)[0m  [1m[32mINSERT INTO "dialogs" ("target", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["target", 0], ["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 06:08:34.669176"], ["updated_at", "2020-02-14 06:08:34.669176"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 40ms (Views: 0.6ms | ActiveRecord: 9.0ms | Allocations: 10891)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:12:40 +0900
+Started POST "/api/dialogs" for ::1 at 2020-02-14 15:12:40 +0900
+Processing by Api::DialogsController#index as JSON
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.1ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+  [1m[36mDialog Create (1.1ms)[0m  [1m[32mINSERT INTO "dialogs" ("target", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["target", 0], ["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 06:12:40.631379"], ["updated_at", "2020-02-14 06:12:40.631379"]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 2.4ms | Allocations: 4824)
+
+
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 2.9ms | Allocations: 6523)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:12:41 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 3255)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:13:04 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.56ms)
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:13:21 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.9ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (1.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.67ms)
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 3.3ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:13:23 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.57ms)
+Completed 200 OK in 15ms (Views: 1.3ms | ActiveRecord: 2.2ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:17:17 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.56ms)
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.9ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:18:02 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.57ms)
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.5ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:18:18 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.58ms)
+Completed 200 OK in 13ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:21:44 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.4ms)
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.2ms | Allocations: 3251)
+
+
+Started POST "/api/dialogs/1" for ::1 at 2020-02-14 15:21:47 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/dialogs/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:22:17 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.1ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.95ms)
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 1.9ms | Allocations: 3250)
+
+
+Started POST "/api/dialog/1" for ::1 at 2020-02-14 15:22:21 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/dialog/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:24:22 +0900
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.22ms)
+Completed 200 OK in 114ms (Views: 6.1ms | ActiveRecord: 21.0ms | Allocations: 28642)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:24:47 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.35ms)
+Completed 200 OK in 16ms (Views: 1.9ms | ActiveRecord: 1.4ms | Allocations: 3271)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:25:21 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.23ms)
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 2.1ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:25:41 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.43ms)
+Completed 200 OK in 18ms (Views: 1.5ms | ActiveRecord: 1.7ms | Allocations: 3271)
+
+
+Started POST "/api/dialogs/1" for ::1 at 2020-02-14 15:25:43 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/dialogs/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:25:50 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.49ms)
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 2.6ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:27:58 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.56ms)
+Completed 200 OK in 15ms (Views: 1.8ms | ActiveRecord: 3.1ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:28:14 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.7ms)
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:28:40 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:29:52 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.71ms)
+Completed 200 OK in 12ms (Views: 1.7ms | ActiveRecord: 1.3ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:30:27 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.59ms)
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 1.2ms | Allocations: 3271)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:30:41 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.55ms)
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:31:39 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.47ms)
+Completed 200 OK in 13ms (Views: 1.6ms | ActiveRecord: 1.8ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for ::1 at 2020-02-14 15:31:55 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.5ms)
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 2.4ms | Allocations: 3251)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:37:24 +0900
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.38ms)
+Completed 200 OK in 111ms (Views: 1.8ms | ActiveRecord: 18.6ms | Allocations: 28677)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:39:45 +0900
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.41ms)
+Completed 200 OK in 118ms (Views: 2.1ms | ActiveRecord: 19.5ms | Allocations: 28679)
+
+
+Started PUT "/api/dialogs/1" for 127.0.0.1 at 2020-02-14 15:39:48 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"asdasd", "id"=>"1", "dialog"=>{"original"=>"asdasd"}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 400 Bad Request in 111ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 4791)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:40:36 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.46ms)
+Completed 200 OK in 113ms (Views: 1.3ms | ActiveRecord: 23.7ms | Allocations: 23664)
+
+
+Started PUT "/api/dialogs/1" for 127.0.0.1 at 2020-02-14 15:40:39 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"asdasd", "id"=>"1", "dialog"=>{"original"=>"asdasd"}}
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ (pry):13:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):13:in `update'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):13:in `update'
+  [1m[36mDialog Update (1.8ms)[0m  [1m[33mUPDATE "dialogs" SET "target" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["target", 1], ["updated_at", "2020-02-14 06:41:51.614238"], ["id", 1]]
+  ↳ (pry):13:in `update'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (pry):13:in `update'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.5ms)[0m  [1m[33mUPDATE "dialogs" SET "original" = $1, "translated" = $2, "comprehended" = $3, "updated_at" = $4 WHERE "dialogs"."id" = $5[0m  [["original", "asdasd"], ["translated", "Asdasd."], ["comprehended", "Asdasd"], ["updated_at", "2020-02-14 06:41:54.196251"], ["id", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 74335ms (Views: 0.8ms | ActiveRecord: 6.4ms | Allocations: 99123)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:42:35 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.0ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.6ms)
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 2.3ms | Allocations: 3290)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:44:01 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.48ms)
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 1.6ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:44:01 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.56ms)
+Completed 200 OK in 14ms (Views: 1.5ms | ActiveRecord: 1.5ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:44:05 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.69ms)
+Completed 200 OK in 18ms (Views: 1.6ms | ActiveRecord: 1.9ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:44:40 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.57ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:45:57 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (3.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.64ms)
+Completed 200 OK in 16ms (Views: 1.3ms | ActiveRecord: 5.0ms | Allocations: 3273)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:45:58 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.64ms)
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 1.4ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:46:22 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.64ms)
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 1.4ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:46:26 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.42ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 1.7ms | Allocations: 3270)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:47:15 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.46ms)
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 3270)
+
+
+Started PUT "/api/dialogs/1" for 127.0.0.1 at 2020-02-14 15:47:21 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"user_intention"=>"asdasd", "id"=>"1", "dialog"=>{"user_intention"=>"asdasd"}}
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:49:13 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.2ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 3.9ms | Allocations: 3411)
+
+
+Started PUT "/api/dialogs/1" for 127.0.0.1 at 2020-02-14 15:49:30 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"user_intention"=>"asdasd", "id"=>"1", "dialog"=>{"user_intention"=>"asdasd"}}
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.6ms)[0m  [1m[33mUPDATE "dialogs" SET "user_intention" = $1, "user_intention_translated" = $2, "updated_at" = $3 WHERE "dialogs"."id" = $4[0m  [["user_intention", "asdasd"], ["user_intention_translated", "Asdasd"], ["updated_at", "2020-02-14 06:49:36.620211"], ["id", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 6412ms (Views: 1.2ms | ActiveRecord: 3.0ms | Allocations: 15396)
+
+
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "user_intention" = $1, "user_intention_translated" = $2, "updated_at" = $3 WHERE "dialogs"."id" = $4[0m  [["user_intention", "asdasd"], ["user_intention_translated", "Asdasd"], ["updated_at", "2020-02-14 06:49:38.442803"], ["id", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 136716ms (Views: 1.3ms | ActiveRecord: 2.5ms | Allocations: 38497)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:50:12 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 200 OK in 91ms (Views: 1.0ms | ActiveRecord: 35.8ms | Allocations: 23821)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:51:36 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 3286)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:52:49 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.63ms)
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 2.1ms | Allocations: 3286)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:53:07 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.47ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 1.8ms | Allocations: 3286)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:53:48 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.5ms | Allocations: 3286)
+
+
+  [1m[36mDialog Load (0.9ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDialog Destroy (0.5ms)[0m  [1m[31mDELETE FROM "dialogs" WHERE "dialogs"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDialog Destroy (0.3ms)[0m  [1m[31mDELETE FROM "dialogs" WHERE "dialogs"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:54:28 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 1.0ms | Allocations: 1465)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:54:31 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (0.7ms)[0m  [1m[32mINSERT INTO "dialogs" ("target", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["target", 0], ["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 06:54:31.719205"], ["updated_at", "2020-02-14 06:54:31.719205"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 2.2ms | Allocations: 5610)
+
+
+Started PUT "/api/dialogs/3" for 127.0.0.1 at 2020-02-14 15:54:42 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"im find!", "id"=>"3", "dialog"=>{"original"=>"im find!"}}
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 400 Bad Request in 99ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 4008)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:54:45 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 2404)
+
+
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" ORDER BY "dialogs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:56:14 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 65ms (Views: 0.8ms | ActiveRecord: 17.0ms | Allocations: 22796)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:56:53 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 1.1ms | Allocations: 2404)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:57:42 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 13ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 2404)
+
+
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDialog Destroy (0.4ms)[0m  [1m[31mDELETE FROM "dialogs" WHERE "dialogs"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:58:08 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.9ms | Allocations: 1465)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:58:15 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (0.3ms)[0m  [1m[32mINSERT INTO "dialogs" ("user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 06:58:48.198460"], ["updated_at", "2020-02-14 06:58:48.198460"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 33188ms (Views: 0.6ms | ActiveRecord: 1.4ms | Allocations: 28760)
+
+
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" ORDER BY "dialogs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started PUT "/api/dialogs/4" for 127.0.0.1 at 2020-02-14 15:59:08 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"im find", "id"=>"4", "dialog"=>{"original"=>"im find"}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.5ms)[0m  [1m[33mUPDATE "dialogs" SET "original" = $1, "comprehended" = $2, "translated" = $3, "updated_at" = $4 WHERE "dialogs"."id" = $5[0m  [["original", "im find"], ["comprehended", "Imfind"], ["translated", "임필드"], ["updated_at", "2020-02-14 06:59:08.884494"], ["id", 4]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 462ms (Views: 1.8ms | ActiveRecord: 15.7ms | Allocations: 29982)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:59:38 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.67ms)
+Completed 200 OK in 15ms (Views: 1.8ms | ActiveRecord: 1.6ms | Allocations: 2629)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 15:59:57 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.4ms)
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 1.1ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:01:46 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:02:24 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (6.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (3.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.42ms)
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 11.7ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:02:38 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 2425)
+
+
+Started PUT "/api/dialogs/4" for 127.0.0.1 at 2020-02-14 16:02:44 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"user_intention"=>"이거야", "id"=>"4", "dialog"=>{"user_intention"=>"이거야"}}
+  [1m[36mDialog Load (1.1ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "user_intention" = $1, "user_intention_translated" = $2, "updated_at" = $3 WHERE "dialogs"."id" = $4[0m  [["user_intention", "이거야"], ["user_intention_translated", "This is it."], ["updated_at", "2020-02-14 07:02:44.777297"], ["id", 4]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 249ms (Views: 1.3ms | ActiveRecord: 3.0ms | Allocations: 8624)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:02:47 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 2439)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:03:32 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 2439)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:04:10 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 2439)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:06:15 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 1.1ms | Allocations: 2439)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:07:20 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.55ms)
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 1.5ms | Allocations: 2439)
+
+
+Started PUT "/api/dialogs/4" for 127.0.0.1 at 2020-02-14 16:07:24 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"feedback"=>true, "id"=>"4", "dialog"=>{"feedback"=>true}}
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:37:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.5ms)[0m  [1m[33mUPDATE "dialogs" SET "feedback" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["feedback", true], ["updated_at", "2020-02-14 07:07:24.739098"], ["id", 4]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 15ms (Views: 1.6ms | ActiveRecord: 3.3ms | Allocations: 6114)
+
+
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDialog Destroy (1.6ms)[0m  [1m[31mDELETE FROM "dialogs" WHERE "dialogs"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:07:59 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.8ms | Allocations: 1465)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:08:00 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (0.4ms)[0m  [1m[32mINSERT INTO "dialogs" ("user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 07:08:11.192814"], ["updated_at", "2020-02-14 07:08:11.192814"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 10497ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 10670)
+
+
+Started PUT "/api/dialogs/5" for 127.0.0.1 at 2020-02-14 16:09:05 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"im fine how about you?", "id"=>"5", "dialog"=>{"original"=>"im fine how about you?"}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.7ms)[0m  [1m[33mUPDATE "dialogs" SET "original" = $1, "comprehended" = $2, "translated" = $3, "updated_at" = $4 WHERE "dialogs"."id" = $5[0m  [["original", "im fine how about you?"], ["comprehended", "How about you?"], ["translated", "너는 어때?"], ["updated_at", "2020-02-14 07:09:05.733676"], ["id", 5]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 563ms (Views: 1.8ms | ActiveRecord: 16.5ms | Allocations: 29967)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:09:33 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.0ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 3.1ms | Allocations: 2629)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:09:35 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 2425)
+
+
+Started PUT "/api/dialogs/5" for 127.0.0.1 at 2020-02-14 16:09:39 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"feedback"=>false, "id"=>"5", "dialog"=>{"feedback"=>false}}
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "feedback" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["feedback", false], ["updated_at", "2020-02-14 07:09:39.054232"], ["id", 5]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 14ms (Views: 1.7ms | ActiveRecord: 2.9ms | Allocations: 6097)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:10:22 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.38ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 1.1ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:10:26 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 1.5ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:10:50 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.0ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.39ms)
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 2.3ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:10:53 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (1.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.43ms)
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 3.0ms | Allocations: 2425)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:12:14 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.7ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.7ms | Allocations: 2425)
+
+
+Started PUT "/api/dialogs/5" for 127.0.0.1 at 2020-02-14 16:12:18 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"complete"=>true, "id"=>"5", "dialog"=>{"complete"=>true}}
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (1.7ms)[0m  [1m[33mUPDATE "dialogs" SET "complete" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["complete", true], ["updated_at", "2020-02-14 07:12:18.827176"], ["id", 5]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 15ms (Views: 1.7ms | ActiveRecord: 3.7ms | Allocations: 6094)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:12:19 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.5ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 2425)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:12:20 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (1.4ms)[0m  [1m[32mINSERT INTO "dialogs" ("user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 07:12:20.482794"], ["updated_at", "2020-02-14 07:12:20.482794"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 2.6ms | Allocations: 3770)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:12:50 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.43ms)
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 3272)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:14 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.5ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 1.4ms | Allocations: 3272)
+
+
+Started PUT "/api/dialogs/6" for 127.0.0.1 at 2020-02-14 16:13:18 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"good", "id"=>"6", "dialog"=>{"original"=>"good"}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (1.2ms)[0m  [1m[33mUPDATE "dialogs" SET "original" = $1, "comprehended" = $2, "translated" = $3, "updated_at" = $4 WHERE "dialogs"."id" = $5[0m  [["original", "good"], ["comprehended", "Good"], ["translated", "좋아요."], ["updated_at", "2020-02-14 07:13:18.589920"], ["id", 6]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 341ms (Views: 1.3ms | ActiveRecord: 2.8ms | Allocations: 11070)
+
+
+Started PUT "/api/dialogs/6" for 127.0.0.1 at 2020-02-14 16:13:20 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"feedback"=>false, "id"=>"6", "dialog"=>{"feedback"=>false}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "feedback" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["feedback", false], ["updated_at", "2020-02-14 07:13:20.904588"], ["id", 6]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 2.1ms | Allocations: 6094)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:37 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.4ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 3293)
+
+
+Started PUT "/api/dialogs/6" for 127.0.0.1 at 2020-02-14 16:13:39 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"complete"=>true, "id"=>"6", "dialog"=>{"complete"=>true}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "complete" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["complete", true], ["updated_at", "2020-02-14 07:13:39.804761"], ["id", 6]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 2.0ms | Allocations: 6092)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:39 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.2ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 3293)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:39 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (0.3ms)[0m  [1m[32mINSERT INTO "dialogs" ("user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 07:13:39.857617"], ["updated_at", "2020-02-14 07:13:39.857617"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 3763)
+
+
+Started PUT "/api/dialogs/7" for 127.0.0.1 at 2020-02-14 16:13:45 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"original"=>"good\n", "id"=>"7", "dialog"=>{"original"=>"good\n"}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "original" = $1, "comprehended" = $2, "translated" = $3, "updated_at" = $4 WHERE "dialogs"."id" = $5[0m  [["original", "good\n"], ["comprehended", "Good"], ["translated", "좋아요."], ["updated_at", "2020-02-14 07:13:45.964618"], ["id", 7]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 247ms (Views: 1.1ms | ActiveRecord: 1.8ms | Allocations: 11069)
+
+
+Started PUT "/api/dialogs/7" for 127.0.0.1 at 2020-02-14 16:13:49 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"feedback"=>false, "id"=>"7", "dialog"=>{"feedback"=>false}}
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "feedback" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["feedback", false], ["updated_at", "2020-02-14 07:13:49.519717"], ["id", 7]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 11ms (Views: 1.3ms | ActiveRecord: 2.5ms | Allocations: 6094)
+
+
+Started PUT "/api/dialogs/7" for 127.0.0.1 at 2020-02-14 16:13:50 +0900
+Processing by Api::DialogsController#update as JSON
+  Parameters: {"complete"=>true, "id"=>"7", "dialog"=>{"complete"=>true}}
+  [1m[36mDialog Load (0.2ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:35:in `set_dialog'
+[31mUnpermitted parameters: :format, :id, :dialog[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mDialog Update (0.4ms)[0m  [1m[33mUPDATE "dialogs" SET "complete" = $1, "updated_at" = $2 WHERE "dialogs"."id" = $3[0m  [["complete", true], ["updated_at", "2020-02-14 07:13:50.464762"], ["id", 7]]
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:40:in `update_dialog'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 2.0ms | Allocations: 6092)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:50 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.3ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 4161)
+
+
+Started POST "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:13:50 +0900
+Processing by Api::DialogsController#create as JSON
+  Parameters: {"target"=>"en", "source"=>"ko", "dialog"=>{"source"=>"ko", "target"=>"en"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ app/services/dialog_service.rb:6:in `create_dialog'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[36mDialog Create (0.3ms)[0m  [1m[32mINSERT INTO "dialogs" ("user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["question_id", 1], ["created_at", "2020-02-14 07:13:50.592286"], ["updated_at", "2020-02-14 07:13:50.592286"]]
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/dialog_service.rb:7:in `create_dialog'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 3763)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:14:07 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.8ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.43ms)
+Completed 200 OK in 16ms (Views: 2.3ms | ActiveRecord: 2.2ms | Allocations: 5010)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:14:19 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (2.2ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (2.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.97ms)
+Completed 200 OK in 26ms (Views: 2.0ms | ActiveRecord: 5.9ms | Allocations: 5009)
+
+
+Started GET "/api/dialogs" for 127.0.0.1 at 2020-02-14 16:14:23 +0900
+Processing by Api::DialogsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."access_token" = $1 LIMIT $2[0m  [["access_token", "qOeXD2nSkTjBRmPVklb_bg"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/authenticatable.rb:12:in `current_user'
+  [1m[36mDialog Load (0.6ms)[0m  [1m[34mSELECT "dialogs".* FROM "dialogs" WHERE "dialogs"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/dialogs_controller.rb:11:in `map'
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/dialog_serializer.rb:11:in `question'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.81ms)
+Completed 200 OK in 19ms (Views: 1.4ms | ActiveRecord: 1.6ms | Allocations: 5009)
+
+

@@ -12,6 +12,8 @@
 ### 서비스 아키텍쳐
 
 <center><img src="./img/stack.jpg"></center>
+
+
 - 데이터 수집 및 전처리 과정에서 CNN 모델을 학습시킨 후 영수증을 판별하였습니다.
 - Naver OCR을 통해 사진에서 텍스트를 추출하고 Naver Papago를 통해 추출된 텍스트를 번역하여 보여줍니다.
 

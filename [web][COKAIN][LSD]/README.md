@@ -42,12 +42,17 @@ Crawling 된 img는 전처리 과정을 통해 학습 및 분석에 용이한 �
 
 ## 2. Learning
 
-Learning은 크게 두 단계로 구성됩니다.
+* Learning은 크게 세 단계로 구성됩니다.
+1. Edge image로부터 의미있는 latent vector를 얻어내는 CDAE(Convolutional Denoising Auto-Encoder) 모델
+2. Naver pose estimation API를 기반으로 학습하여 배경사진으로 부터 Pose를 예측하는  PoseNet 모델
+3. 예측된 pose 정보로부터 사진에서 최적 위치를 보여주는 MaskNet 모델입니다.
+앞서 준비한 2,704개의 사진을 기반으로 위의 모델들을 학습하고, 사진 찍을 자리를 예측하는 통합 모델을 구축하였습니다.
 
 ## 3. Service
 
-
-
+웹 사이트를 통해 웹 서버상에 이미지가 업로드되면, 서버가 백엔드에서 해당 이미지의 엣지를 디텍션해내고, 신경망을 통해 추출해낸 엣지 정보로부터 최적의 포즈를 추천해주는 서비스(웹)를 개발했습니다.
+접속 주소는 아래와 같습니다.
+http://143.248.31.107:9999/
 
 
 ## 4. Citiation

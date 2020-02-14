@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from .serializers import *
-# from naver.classify import is_receipt
+from naver.classify import is_receipt
 from .naverAPI import image_NAVER_AI
 import json
 

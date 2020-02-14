@@ -1,0 +1,10 @@
+/* contents css
+ * Injecting css to web content
+ * Refernce: https://developer.chrome.com/extensions/content_scripts
+ */
+ @font-face {
+	font-family: 'Jua';
+	font-style: normal;
+	font-weight: 700;
+	src: url('chrome-extension://__MSG_@@extension_id__/fonts/Jua-Regular.ttf'); 
+}

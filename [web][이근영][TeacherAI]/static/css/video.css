@@ -1,0 +1,190 @@
+.video {
+
+	width : 700px;
+	float : left;
+}
+
+.video video {
+	width : 100%;
+	height : 400px;
+}
+
+.video_sub {
+	width : 400px;
+	float : left;
+	overflow: scroll;
+	height : 400px;
+}
+
+.video_header {
+
+	margin-top : 20px;
+	font-size : 24px;
+	color : #0d0d0d99;
+	font-weight: bold;
+
+}
+
+.nav-tabs li {
+	width : 25%;
+	border : 0px solid #fff;
+}
+
+.nav-tabs {
+	border : none;
+	text-align: center;
+	font-size : 18px;
+	font-weight: bold;
+	margin-bottom: 28px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	border : none;
+	background-color: #fff;
+	color : rgb(123,190,86);
+	border-bottom : 2px solid rgb(123,190,86);
+}
+
+.nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
+	border : none;
+	background-color: #fff;
+	color : #c2c2c2;
+	border-bottom : 2px solid #c2c2c2;
+}
+
+.script_real_time {
+	display: none;
+}
+
+.current_script {
+	display: block;
+}
+
+.video_sub {
+	margin : 10px;
+}
+
+.script_real_time_wrapper {
+	width : 100%;
+	border : 1px solid #c2c2c2;
+	overflow: scroll;
+	height : 360px;
+	padding : 20px;
+}
+
+.rts_title {
+	font-size : 18px;
+	font-weight: bold;
+}
+
+.point_label {
+	font-size : 18px;
+	font-weight: bold;
+	color : #0d0d0d99;
+}
+
+.recommend_lecture_wrapper {
+	width : 100%;
+	float : left;
+}
+
+.lecture_img {
+	width : 100px;
+	float : left;
+	padding : 10px;
+}
+
+.lecture_img img {
+	width : 100%;
+}
+
+.lecture_info {
+	width : 300px;
+	float : left;
+	padding : 10px;
+}
+
+.lecture_title {
+	font-size : 15px;
+	font-weight: bold;
+	margin : 0 0 0px;
+}
+
+.lecture_teacher {
+	font-size : 12px;
+	margin : 0 0 0px;
+	margin-top : 5px;
+}
+
+.recommend_title {
+	font-size : 20px;
+	font-weight: bold;
+	color : #0d0d0d99;
+}
+
+.study_label {
+	display: inline-block;
+    width: 67px;
+    height: 19px;
+    line-height: 19px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+    color: #244798;
+    border: 1px solid #244798;
+    box-sizing: border-box;
+}
+
+.study_title {
+	font-size : 18px;
+	font-weight: bold;
+	margin : 0 0 0px;
+	margin-top : 5px;
+
+}
+
+.recommend_divider {
+	width : 50%;
+	float : left;
+	height : auto;
+	overflow: hidden;
+}
+
+.study_lecture {
+	margin : 0 0 0px;
+	margin-top : 5px;
+	font-weight : bold;
+}
+
+.recommend_study_wrapper {
+	width : 100%;
+	padding : 10px;
+}
+
+.lecture_number {
+	font-weight : bold;
+}
+
+.recommend_content {
+	display: none;
+	padding-bottom : 20px;
+}
+
+.current_recommend {
+	display: block;
+}
+
+.current_keywords {
+	font-size : 18px;
+	font-weight: bold;
+}
+
+.tab-pane {
+	padding-bottom : 100px;
+	height : auto;
+	overflow: hidden;
+}
+
+
+

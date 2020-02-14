@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Callsistant</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_start">눌러서 말하기</string>
+    <string name="str_stop">중지</string>
+
+    <!-- for activity_main.xml-->
+    <string name="set_user_name">사용자 이름 설정</string>
+
+
+    <!-- for sip -->
+    <string name="contactAddress">SIP Address to contact</string>
+    <string name="talk">Talk</string>
+
+</resources>

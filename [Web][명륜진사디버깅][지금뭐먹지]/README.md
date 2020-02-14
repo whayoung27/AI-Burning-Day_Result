@@ -16,6 +16,10 @@ Flask를 사용하여 서버를 구축 후, 챗봇의 메시지를 Webhook하여
 
 **URL**
 
+1회용 초대 URL입니다.
 
-
->  https://chatbot.ncloud.com/invite/KJ6gHm6nRccWTnaCzaKGprrFECZdPDdmOpc0zxgkSpw
+>  https://chatbot.ncloud.com/invite/mcjG1IxLMAQKEORK1crCuKNHfewHi8ailhsqHkaJ0 
+>  https://chatbot.ncloud.com/invite/veOwS6az6uYBtABSQmVA51eWXo6gd9Je7CtSJqORia8
+>  https://chatbot.ncloud.com/invite/MQq8XZEBCTrLqneCBn16Mn8His9lCugvv7cYnRxxwE
+>  https://chatbot.ncloud.com/invite/mio8o85ZxwhQ0M7gBBpxg1eRtQ5qzCTGAI8aix7UFv8
+>  https://chatbot.ncloud.com/invite/QPBYZry0ubRAVAzpDadymDrDiuvmnZN5KrbzFVmPs

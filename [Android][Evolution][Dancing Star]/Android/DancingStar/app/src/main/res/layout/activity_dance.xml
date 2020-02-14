@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBlack"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".learn.LearnActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dance_tv_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimaryDark"
+        android:layout_gravity="center_horizontal"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"/>
+
+    <ProgressBar
+        android:id="@+id/dance_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ProgressBar"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextureView
+            android:id="@+id/dance_texture_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"/>
+
+        <VideoView
+            android:id="@+id/dance_video_view"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="right|bottom"/>
+
+    </FrameLayout>
+
+</LinearLayout>

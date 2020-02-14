@@ -37,3 +37,10 @@
 + Scikit 0.22
 + lgb 2.3.1
 +
+
+
+
+
+https://github.com/gywls517/naver-ai-hackathon
+https://gitlab.com/getveryrichet/naverhackathon
+https://naver-ai-hackathon.gywls517.now.sh

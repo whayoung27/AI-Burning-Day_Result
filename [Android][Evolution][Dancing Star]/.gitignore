@@ -1,0 +1,53 @@
+# mac
+Backend/dancing-star/src/main/.DS_Store
+
+*.iml
+.gradle
+Android/DancingStar/local.properties
+Android/DancingStar/.idea/caches/build_file_checksums.ser
+Android/DancingStar/.idea/libraries
+Android/DancingStar/.idea/modules.xml
+Android/DancingStar/.idea/workspace.xml
+.DS_Store
+Android/DancingStar/build
+Android/DancingStar/captures
+.externalNativeBuild
+
+# backend
+
+## dancing star
+Backend/dancing-star/**/application.properties
+
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+### VS Code ###
+.vscode/
+

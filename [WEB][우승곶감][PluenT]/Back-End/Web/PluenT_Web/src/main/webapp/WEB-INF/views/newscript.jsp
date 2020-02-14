@@ -36,14 +36,14 @@ $(function(){
 			<li><a class="menuLink" href="#">발표연습</a></li>
 			<li><a class="menuLink" href="alllecture">강의보기</a></li>
 			<li><a class="menuLink" href="scriptlist">나의 발표관리</a></li>
-			<li><a class="menuLink" href="login">로그아웃</a></li>
+			<li><a class="menuLink" href="logout">로그아웃</a></li>
         </ul>
       </div>
     </nav>
    
    <section class="translation">
       <form id="userScript" action="newscript" method="post">
-      <div class="translation_left">제목<input type="text" class="trans_title" name="title" value="${trans.title}" /> <br><br>
+      <div class="translation_left">제목<input type="text" class="trans_title" name="title" value="${title}" /> <br><br>
          <div>
            <select name=origin_lang size=1 class="transOption">
             <option value="ko" selected>한국어</option>

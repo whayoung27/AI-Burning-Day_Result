@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83" height="83" fill="none" viewBox="0 0 83 83">
+    <circle r="41.5" fill="url(#prefix__paint0_linear)" transform="matrix(-1 0 0 1 41.5 41.5)"/>
+    <ellipse fill="url(#prefix__pattern0)" rx="36.156" ry="36.236" transform="matrix(-1 0 0 1 41.402 41.5)"/>
+    <defs>
+        <linearGradient id="prefix__paint0_linear" x1="41.5" x2="41.5" y1="0" y2="83" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#A806B5"/>
+            <stop offset="1" stop-color="#5728E2"/>
+        </linearGradient>
+        <pattern id="prefix__pattern0" width="1" height="1" patternContentUnits="objectBoundingBox">
+            <use transform="translate(-.001) scale(.00496)" xlink:href="#prefix__image0"/>
+        </pattern>
+    </defs>
+</svg>

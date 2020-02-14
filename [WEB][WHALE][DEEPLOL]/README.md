@@ -9,7 +9,7 @@
 - 크롤러를 queue 기반으로 구성하여 fail-over 하게 구성하였습니다. (중간에 끊겨도 다시 이어작업할 수있음, API Rate Limit에 구애받지않음 등)
 
 ### 주소
-- http://deeplol.euncan.com
+- http://deeplol.eunchan.com
 
 ### 동영상
 - 쿠버네티스 롤링업데이트 영상 : https://youtu.be/y2DR6pUQl7A

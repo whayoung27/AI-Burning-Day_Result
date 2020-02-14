@@ -1,0 +1,7 @@
+arguments: C:/Users/Radykov/Documents/dev/personal/face/face/src/align/align_dataset_mtcnn.py C:\Users\Frank\Documents\facenet_me_and_others\train C:\Users\Frank\Documents\facenet_cropped --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.70
+--------------------
+tensorflow version: 1.2.0
+--------------------
+git hash: b''
+--------------------
+b''

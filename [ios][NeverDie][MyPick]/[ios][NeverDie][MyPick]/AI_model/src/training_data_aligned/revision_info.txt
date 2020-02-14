@@ -1,0 +1,7 @@
+arguments: ./src/align/align_dataset_mtcnn.py
+--------------------
+tensorflow version: 1.2.0
+--------------------
+git hash: b'HEAD'
+--------------------
+b''

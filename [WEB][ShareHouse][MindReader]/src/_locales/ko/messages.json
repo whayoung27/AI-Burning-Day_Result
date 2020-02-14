@@ -1,0 +1,11 @@
+{
+	"APP_NAME": {
+		"message": "마인드 리더"
+	},
+	"APP_DESCRIPTION": {
+		"message": "시각장애인을 위한 웹 서핑 도우미 확장 프로그램"
+	},
+	"POPUP_TEXT": {
+      "message": "단축키 설명..."
+	}
+}

@@ -1,0 +1,11 @@
+.DS_Store
+static/img/
+static/movie/
+static/capture/
+config.py
+__pycache__/
+*.pyc
+static/files/
+template/main_calendar/
+template/schedule/
+app.wsgi

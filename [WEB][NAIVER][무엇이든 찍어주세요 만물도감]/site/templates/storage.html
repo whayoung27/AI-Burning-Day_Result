@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <title>Document</title>
+   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css'>
+  <link rel="stylesheet" href="./static/css/style2.css">
+  <style>
+    .card__image{
+      overflow-y: auto;
+    }
+  </style>
+  
+
+  <script type=text/javascript>
+    // user_item을 가져와 리스트로 만들기
+    $( document ).ready(function() {
+      var json_data = {{ json_data | tojson | safe }};
+      console.log(Object.keys(json_data).length)
+      
+      var element = document.getElementById("a");
+      var plusUl = document.createElement('ul');
+      for(var row = 0; row < Object.keys(json_data).length; row++){ 
+        
+        var plusli = document.createElement('ll');
+        var plusdiv = document.createElement('div');
+        plusdiv.setAttribute("style" , 'width: 100px; height:100px; vertical-align: middle; position:relative; display: inline-block;  bottom:0');
+
+        var i = document.createElement("img");
+        i.setAttribute('class', 'liClass');
+        i.setAttribute('src', {{url_for('static', filename='')}} + 'item/' + json_data[row]['ITEMID'] + '.png');
+        i.setAttribute('id',json_data[row]['INDEX_ITEM'])
+        var s = json_data[row]['S'];
+        i.setAttribute('ALT',s);
+        if(s == 0){
+          i.setAttribute("style" , 'width: 100px; display: block; opacity:0.1;  ');
+        }
+        else{
+          i.setAttribute("style" , 'width: 100px; display: block; opacity:1;');
+        }
+        plusdiv.appendChild(i);
+        plusli.appendChild(plusdiv);
+        plusUl.appendChild(plusli);
+      };
+      element.appendChild(plusUl);
+    });
+  </script>
+
+  <script type=text/javascript>
+    // json 초기화
+    var kk = {"INDEX_ITEM": 0, "s": 0};
+
+    // 이미지 클릭시 1이면 선명하게 , 0이면 불투명하게 구별
+    $(document).on("click", ".liClass", function(){
+        var liId = $(this).attr("id");
+        console.log(liId);
+        kk["INDEX_ITEM"] = liId;
+        if($(this).attr('ALT') == 1){
+          $(this).css('opacity' ,'0.1');
+          $(this).attr('ALT' ,'0');
+        kk["s"] = $(this).attr('ALT');
+        }
+        else{
+          $(this).css('opacity' ,'1');
+          $(this).attr('ALT' ,'1');
+          kk["s"] = $(this).attr('ALT');
+        }
+      //show 함수통해 s컬럼 update
+      $.ajax({
+        type: 'POST',
+        contentType: 'application/json', 
+        url: '/show',
+        dataType : 'json',
+        data : JSON.stringify(kk),
+        success : function(result) {
+        jQuery("#clash").html(result); 
+        },error : function(result){
+        console.log(result);
+        }
+      });
+    });
+  </script>
+    <style>
+    #a{
+      height: 400px;
+      padding: 10%;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide-container">
+  
+        <div class="wrapper">
+          <div class="card">
+            <div class="card__image card__image--structure" id = 'a'></div>
+
+            <div class="card__unit-stats card__unit-stats--button clearfix">
+              <div class="one-third">
+                <a href="{{ url_for('go_main') }}" style="text-decoration:none">
+                  <img src="./static/img/left-arrow.png" alt="left-arrow"/>
+                  <div class="stat-value">메인으로</div>
+                </a>
+              </div>
+      
+              <a href="{{ url_for('go_repository') }}" style="text-decoration:none">
+                <div id="add" class="one-third no-border">
+                  <img src="./static/img/picture.png" alt="plus"/>
+                  <div class="stat-value">마이룸으로</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div> <!-- end card -->
+    </div> <!-- end container -->
+    <!-- partial -->
+    <script>
+    </script>
+    <script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+    <script  src="./static/js/script.js"></script>
+      
+
+  
+</body>
+</html>

@@ -1,0 +1,9 @@
+secret.txt
+.idea/
+__pycache__/
+*.mkv
+*.mp4
+*.avi
+*.wav
+*.zip
+OriginalData/

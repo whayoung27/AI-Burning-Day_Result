@@ -1,0 +1,17 @@
+{% include "header.html"%}
+
+    {% include "search_bar.html" %}
+
+    <div class="container">
+        {% for v in videos %}
+        <div class="video_wrapper">
+          <a href="/video/{{v.id}}"><img class="thumbnail" src="/static/thumbnail/{{v.thumb_nail}}"></a>
+          <p class="video_duration">{{seconds_to_time(v.length)}}</p>
+          <a href="/video/{{v.id}}"><p class="video_title">{{v.title}}</p></a>
+          <p class="teacher">{{v.teacher}}</p>
+          
+        </div>
+        {% endfor %}
+      </div>
+    
+  {% include "footer.html" %}

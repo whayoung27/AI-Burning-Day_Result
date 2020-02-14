@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ga
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ga
+  template:
+    metadata:
+      labels:
+        app: ga
+    spec:
+      containers:
+        - name: ga
+          image: ckcks12/deep-whale-ga
+          envFrom:
+            - configMapRef:
+                name: ga
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              port: 80
+              path: /health
+            initialDelaySeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 80
+              path: /ready
+            initialDelaySeconds: 5
+            periodSeconds: 3

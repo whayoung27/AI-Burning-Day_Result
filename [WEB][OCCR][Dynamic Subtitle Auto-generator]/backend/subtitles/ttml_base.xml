@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xmlns="http://www.w3.org/ns/ttml">
+  <head>
+    <metadata xmlns:ttm="http://www.w3.org/ns/ttml#metadata">
+      <ttm:title>Timed Text TTML Example</ttm:title>
+      <ttm:copyright>The Authors (c) 2006</ttm:copyright>
+    </metadata>
+    <styling xmlns:tts="http://www.w3.org/ns/ttml#styling" />
+    <layout xmlns:tts="http://www.w3.org/ns/ttml#styling" />
+  </head>
+  <body>
+    <div />
+  </body>
+</tt>

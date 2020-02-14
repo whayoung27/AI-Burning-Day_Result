@@ -1,0 +1,92 @@
+<!doctype>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <title> Loading... </title>
+</head>
+
+<body>
+  <div id="loadingImg"> </div>
+
+  <script>
+    function LoadingWithMask(gif) {
+      //화면의 높이와 너비를 구합니다.
+      var maskHeight = $(document).height();
+      var maskWidth = window.document.body.clientWidth;
+      console.log(maskHeight, maskWidth);
+
+      //화면에 출력할 마스크를 설정해줍니다.
+      var mask = "<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:none; left:0; top:0;'></div>";
+      var loadingImg = '';
+      loadingImg += "<img src='" + gif + "' style='position: absolute; z-index: 100; top: 40%; left: 40%;'/>";
+
+      //화면에 레이어 추가
+      $('body')
+        .append(mask)
+
+      //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+      $('#mask').css({
+        'width': maskWidth,
+        'height': maskHeight,
+        'opacity': '0.3'
+      });
+
+      //마스크 표시
+      $('#mask').show();
+
+      //로딩중 이미지 표시
+      $('#loadingImg').append(loadingImg);
+      $('#loadingImg').show();
+    }
+
+    function closeLoadingWithMask() {
+      $('#mask, #loadingImg').hide();
+      $('#mask, #loadingImg').empty();
+    }
+  </script>
+
+  <% if(isEnd == 'false') {%>
+  <script>
+    LoadingWithMask('https://tistory2.daumcdn.net/tistory/1898109/skin/images/' + 'Wedges.gif');
+    setTimeout("closeLoadingWithMask()", 1000);
+    var video_id = "";
+    getIdfromUrl("<%= youtube_url%>", function (id) {
+      if (id == null) {
+        alert("No Video");
+        location.href = "/";
+      } else {
+        video_id = id;
+      }
+    })
+    setTimeout("location.href=\"/service/" + video_id + "\"", 1500);
+
+    // Return id of video
+    function getIdfromUrl(url) {
+      var usp = new URLSearchParams(url.substring(url.indexOf("?")));
+      var id = usp.get("v");
+
+      if (id == null) {
+        alert("No Video");
+        location.href = "/";
+      }
+
+      return id;
+    }
+
+    function getIdfromUrl(urlstr, cb) {
+      urlstr = urlstr + "";
+      var usp = new URLSearchParams(urlstr.substring(urlstr.indexOf("?")));
+      var id = usp.get("v");
+      console.log("YouTube id : " + id);
+
+      cb(id);
+    }
+  </script>
+  <% } else { %>
+  <script> closeLoadingWithMask() </script>
+  <% } %>
+</body>
+
+</html>

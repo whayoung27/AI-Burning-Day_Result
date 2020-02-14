@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+html{
+  font-family: 'Noto Sans KR' !important;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  font-size: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+#root{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+p{
+  margin:0px;
+}
+@media (max-width: 960px) { 
+  html { font-size: 90%; } 
+}

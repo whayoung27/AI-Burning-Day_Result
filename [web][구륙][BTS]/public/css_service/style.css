@@ -1,0 +1,594 @@
+/*
+
+Conquer Template
+
+http://www.templatemo.com/tm-476-conquer
+
+
+iframe {
+  display: block;
+  border: 0;
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+}
+
+*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif!important;
+}
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+p{
+  font-size: 14px;
+  line-height: 1.6em;
+  margin: 0;
+}
+a:hover { text-decoration: none; }
+
+/* Start Main Menu */
+header {
+  /*background-image: url("../img/bg-1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  padding: 235px 0;
+  /*margin-bottom: 60px;*/
+  /*background-attachment: fixed;*/
+  /*background-size: 100% 100%;*/
+}
+ul#menu {
+background: #40475A none repeat scroll 0 0;
+padding: 6px;
+position: fixed;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+width: 100%;
+z-index: 999;
+    }
+.main-menu {
+  margin-top: -234px;
+}
+.main-menu ul{}
+.main-menu ul li {
+  display: inline-block;
+  padding: 10px;
+}
+.main-menu ul li a {
+  background: #383E4C none repeat scroll 0 0;
+  border: 1px solid #646d7c;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+/*.main-menu ul li.active a,*/
+.main-menu ul li a:focus,
+.main-menu ul li a:hover {
+  background: #49505F;
+}
+.header-content  h1 {
+  color: #fff;
+  font-size: 70px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #000;
+}
+.header-content h4 {
+  color: #fff;
+  font-size: 25px;
+  text-shadow: 1px 1px #333;
+}
+.single-page-nav { text-align: center; }
+/* End Header CSS */
+
+/* Start Feature CSS */
+.green-text { color: #178A27; }
+.blue-text { color: #1686C1; }
+.gray-text { color: #1686C1; }
+.green-btn { background: #178A27; }
+.green-btn:hover { background: #449D44; }
+.blue-btn { background: #1686C1; }
+.blue-btn:hover { background: #31B0D5; }
+.red-btn { background: #852406; }
+.red-btn:hover { background: #C9302C; }
+.feature-content {
+    background: #F2F2F2;
+    padding-bottom: 40px;
+}
+.feature-content-title {
+    padding: 0 20px;
+    text-align: left;    
+}
+.feature-content-description {
+    padding: 0 20px 35px;
+    text-align: left;
+    color: #333333;
+    margin-top: 15px;
+}
+.feature-content-link {
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+}
+.feature-content-link:hover, .feature-content-link:link, .feature-content-link:visited  {
+  color: white;
+  text-decoration: none;
+}
+
+/* End Feature CSS */
+
+/* Start Blog CSS */
+#blog-area {
+    padding: 120px 0px;
+}
+.blog-content {
+  background: #F2F2F2;
+  padding-bottom:25px;
+  margin: 0;
+  position: inherit;
+}
+.blog-content h2 {
+    color: #666666;
+    text-transform: capitalize;
+}
+.blog-content p {
+    padding: 27px;
+    text-align: left;
+    color: #333333;
+}
+.blog-content span {
+  margin-left: 225px;
+}
+.blog-content span a {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #666666;
+    font-size: 18px;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.blog-content span a:hover {
+    background: #E6E6E6 none repeat scroll 0 0;
+}
+.blog-content > p#blofr {
+    padding: 8px;
+}
+/* End Blog CSS */
+
+/* Start Services CSS */
+div#service-area-main {
+    float: left;
+    width: 100%;
+  margin-top:-200px;
+}
+.our-service{
+  margin:65px 0px 85px;
+}
+/*section#services-area {
+  background-image: url("../img/bg-2.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}*/
+.service  h1 {
+  color: #fff;
+  text-transform: capitalize;
+  text-shadow: 2px 2px #aaa;
+  margin-bottom: 20px;
+}
+.service > p {
+    color: #fff;
+    font-size: 18px;
+}
+/* End Services CSS */
+
+/* Start Testimornial CSS */
+#testimornial-area{
+  margin: 60px 0;
+}
+h2 {
+    color: #666666;
+}
+.testimonial-content {
+  background-color: #f2f2f2;
+  height: 500px;
+  max-width: 260px;
+  margin: 0 auto 30px;
+}
+.testimonial-content  p {
+    padding: 10px 20px;
+    text-align: left;
+}
+.content-link {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #cdcdcd;
+    border-radius: 10px;
+    color: #666;
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: capitalize;
+    margin-top: 15px;
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+}
+.content-link:hover,
+.content-link:focus {
+    background: #E6E6E6 none repeat scroll 0 0;
+}
+
+/* End Testimornial CSS */
+
+/* Start Contact CSS */
+/*section#contact-area {
+  background-image: url("../img/bg-3.jpg");
+  background-position: center center;
+  background-size: cover;  
+  background-attachment: fixed; 
+}*/
+.contact-content h1 {
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+  text-shadow: 2px 2px #333;
+}
+.contact-content p {
+    background: rgba(242, 242, 242, 0.4) none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 20px 15px;
+}
+.contact-form-left { padding-left: 0; }
+.contact-form-right { padding-right: 0; }
+input {
+    margin-bottom: 15px;    
+}
+.form-control {
+  border: none;
+  background: rgba(242, 242, 242, 0.4);
+}
+#comment.form-control {
+
+}
+.form-group button {
+  background: #262628 none repeat scroll 0 0;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius:10px;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+/* End Contact CSS */
+
+/* Start Footer CSS */
+.footer-content  h1 {
+    color: #666;
+    font-size: 32px;
+    font-style: italic;
+    margin-bottom: 25px;
+    margin-top: 35px;
+}
+.footer-content  p {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+.copy {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+/* Slick Nav CSS */
+.slicknav_menu {
+    display:none;
+}
+.slicknav_nav a {
+    text-transform: capitalize;
+}
+.slicknav_menu {
+  background: #40475a none repeat scroll 0 0;
+}
+/* Scrool To top */
+/* Image style */
+#scrollUp {
+    background-image: url("../img/top.png");
+    bottom: 20px;
+    right: 20px;
+    width: 38px;    /* Width of image */
+    height: 38px;   /* Height of image */
+}
+/* End Scroll To top */
+
+.about-section {
+    height: 100%;
+    padding-top: 70px;
+}
+
+.services-section {
+    height: 100%;
+   /* padding-top: 150px;*/
+}
+.tm-box {
+  background-color: #F2F2F2;
+  max-width: 1140px;
+  width: 100%;
+}
+.tm-box-description {
+  padding: 30px;
+}
+.tm-box-p {
+  margin-bottom: 10px;
+}
+.tm-box-p:last-child {
+  margin-bottom: 0;
+}
+.contact-section {
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+.form-control {
+  color: #000;
+}
+.contact-section .container {
+  max-width: 750px;
+}
+
+/*https://css-tricks.com/snippets/css/style-placeholder-text/*/
+.form-control::-webkit-input-placeholder {
+   color: black;
+}
+.form-control:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+.form-control:-ms-input-placeholder {  
+   color: black;  
+}
+
+/*************navigation******************/
+
+ .navbar-inverse {
+    background-color: #383E4C;
+    border-color: #383E4C;
+}
+.navbar-nav>li {
+    display: inline-block;
+    padding: 10px;
+}
+.navbar-inverse .navbar-nav>li>a {
+    background: #383E4C none repeat scroll 0 0;
+    border: 1px solid #646d7c;
+    color: #fff ;
+    font-size: 20px;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+}
+
+.navbar-inverse .navbar-nav > li > a.current,
+.navbar-inverse .navbar-nav > li > a:hover {
+        background: #49505F;
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+/* Media Queries
+----------------------*/
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .blog-content > p#blofr {
+    padding: 18px;
+  }
+  .contact-content p {
+    font-size: 15px;
+  }
+}
+
+/*    Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .blog-content p {
+    margin-bottom: 21px;
+    padding: 27px;
+  }
+  .blog-content span { margin-left: 0; }
+  .service > p { font-size: 18px; }
+  .contact-content p {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+  .navbar-nav > li {
+    padding: 6px;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  header,
+  section#services-area,
+  section#contact-area {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  
+  header {
+    height: 75vh;
+    padding: 0 15px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  } 
+
+  ul#menu { display:none; }
+
+  .slicknav_menu {
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background:none;
+  }
+  .header-content h1 {
+   font-size: 55px;
+  }
+  .feature-content {
+    max-width: 360px;
+    margin: 0 auto 30px;
+  }
+  .feature-content-title,
+  .feature-content-description {
+   text-align: center;
+  }
+  .blog-content { margin-bottom: 30px; }
+  .blog-content p { text-align: center; }
+  .blog-content span { margin-left: 0; }
+  .testimornial-content p { text-align: center; }
+  .footer-content h4 { font-size: 16px; }
+  .navbar-nav>li { display: block; }
+  .navbar-inverse {
+    background: none;
+    border: none; 
+  }
+  .navbar-inverse .navbar-toggle { background-color: #333; }
+  .navbar-inverse .navbar-collapse, 
+  .navbar-inverse .navbar-form {
+    background-color: #49505F;
+  }
+  .navbar .navbar-nav {
+    width: 100%;
+    margin:0;
+  }
+  .navbar-collapse {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .navbar-nav>li {
+    width: 100%;
+    border-bottom: 1px solid #999;
+    padding:0px;
+  }
+  .navbar-nav>li:last-child { border-bottom: none;  }
+  .navbar-inverse .navbar-nav>li>a {
+    background:none;
+    border: none;
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .navbar-inverse .navbar-nav>li>a:focus, 
+  .navbar-inverse .navbar-nav>li>a:hover {
+    background-color: #383E4C;
+  }
+  .navbar-inverse .navbar-nav>.active>a, 
+  .navbar-inverse .navbar-nav>.active>a:focus, 
+  .navbar-inverse .navbar-nav>.active>a:hover {
+    background: #383E4C;
+  }
+  .navbar-inverse .navbar-nav > li > a { font-size: 16px; }
+  .container {
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .single-page-nav {
+    background-color: #383E4C;
+    max-height: 0;
+    -webkit-transition: max-height 0.8s;
+            transition: max-height 0.8s;
+    overflow: hidden;
+  }
+  /*http://css3.bradshawenterprises.com/animating_height/*/
+  .single-page-nav.show {
+    max-height: 250px;
+    overflow: auto;
+  }
+  .contact-form-left {
+    padding-right: 0;
+  }
+  .contact-form-right {
+    padding-left: 0;
+  }
+}
+
+/*    Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .header-content h1 {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .col-xxs-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header { height: 50vh; }
+}

@@ -74,6 +74,8 @@ class ResultActivity : AppCompatActivity() {
 
         // ranking 띄우기
 
+        /*
+
         val rankingurl = "http://10.83.32.245:9090/ranking"
 
         val testRequest2 = object : StringRequest(Method.GET, rankingurl ,
@@ -113,6 +115,17 @@ class ResultActivity : AppCompatActivity() {
         }
 
         Volley.newRequestQueue(this).add(testRequest2)
+        */
+
+
+        var temp = ranking(nickname = "competitor", score = "2938")
+        ranking.add(temp)
+        ranking.add(temp)
+        ranking.add(temp)
+        ranking.add(temp)
+        ranking.add(temp)
+        ranking.add(temp)
+        ranking.add(temp)
 
 
 

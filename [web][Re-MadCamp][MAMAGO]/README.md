@@ -1,4 +1,4 @@
-# 마마고라는 잉글리쉬 튜터링 서비스
+# MAMAGO - 잉글리쉬 튜터링 서비스
 
 **URL**
 https://mamago-web.herokuapp.com/

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 // const StyledHeader = styled.div`
 //   height: 40px;
@@ -62,12 +63,15 @@ const UlHeader = styled.ul`
   }
 `;
 
+const LiStyle = styled.li`
+  text-decoration: none !important;
+`
+
 const SideList = () => {
   return (
     <UlHeader>
-      <li>hi</li>
-      <li>Hello</li>
-      <li>Bye</li>
+      <LiStyle><Link to="/tempchat" style={{textDecoration: 'none', color: 'white'}}>채팅하기</Link></LiStyle>
+      <LiStyle><Link to="/logs" style={{textDecoration: 'none', color: 'white'}}>지난 기록</Link></LiStyle>
     </UlHeader>
   );
 };

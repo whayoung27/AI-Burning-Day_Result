@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lecture">
+		
+	<!-- crud -->
+	<select id="allUserLecture" resultType="lecture" parameterType="String">
+		select * 
+		from lecture 
+		where lecture_seq 
+		in (select lecture_seq from LINK where user_id = #{t})
+	</select>
+	
+	<select id="allLecture" resultType="lecture" >
+		select * from lecture
+	</select>
+	
+<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+</mapper>
+
+
+
+
+
+
+
+

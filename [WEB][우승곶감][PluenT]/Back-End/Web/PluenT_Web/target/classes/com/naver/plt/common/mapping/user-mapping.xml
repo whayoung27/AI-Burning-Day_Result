@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+		
+	<!-- crud -->
+	<select id="allUser" resultType="user">
+		select * from users
+	</select>
+	
+	<select id="oneUser" resultType="user" parameterType="String">
+		select * from users where user_id = #{id}
+	</select>
+	
+	<select id="loginUser" resultType="user" parameterType="user">
+		select * from users where user_id = #{user_id} and password = #{password}
+	</select>
+	
+	<insert id="insertUser" parameterType="user">
+		insert into users
+		values(#{user_id},#{password},#{name},sysdate,'user')
+	</insert>
+<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+</mapper>
+
+
+
+
+
+
+
+

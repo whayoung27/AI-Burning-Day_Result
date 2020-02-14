@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+
+	<select id="getUser" parameterType="int" resultType="user">
+		SELECT * FROM USERS
+		WHERE  user_id=#{user_id} and password=#{password}
+	</select>
+
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+
+	<insert id="insertSomething" parameterType="#modelname">
+		INSERT INTO tablename1 (columnname1, columnname2, columnname3)
+		VALUES(#{value1},#{value2},#{value3})
+	</insert>
+
+	<update id="updateSomething" parameterType="#modelname">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="deleteSomething" parameterType="int">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete>
+
+</mapper>

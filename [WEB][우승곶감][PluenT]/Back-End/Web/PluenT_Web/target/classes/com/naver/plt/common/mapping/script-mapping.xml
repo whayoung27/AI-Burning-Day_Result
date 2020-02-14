@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="script">
+		
+	<!-- crud -->
+	<select id="userScript" resultType="script" parameterType="String">
+		select script_id,title,pttime,regdate from script where user_id = #{user_id}
+	</select>
+	
+	<select id="oneScript" resultType="script" parameterType="String">
+		select * from script where script_id = #{id}
+	</select>
+	
+	<select id="maxSetId" resultType="Int">
+		SELECT nvl(MAX(set_id),0)+1 FROM script
+	</select>
+	
+	<insert id="insertScript" parameterType="script">
+		insert into script
+		values( (SELECT nvl(MAX(script_id),0)+1 FROM script), #{user_id},
+		#{title}, #{content}, #{script}, #{pttime}, #{voice_path}, sysdate, #{set_id})
+	</insert>
+<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+</mapper>
+
+
+
+
+
+
+
+

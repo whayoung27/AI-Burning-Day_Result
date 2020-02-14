@@ -1,0 +1,3 @@
+[submodule "server/pytorch-bert-crf-ner"]
+	path = server/pytorch-bert-crf-ner
+	url = https://github.com/NaverBunningDay-ShareHouse/pytorch-bert-crf-ner

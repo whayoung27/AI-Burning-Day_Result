@@ -1,0 +1,19 @@
+0.3:hello guys welcome to my new video
+3.51:in this video I'll be talking to your loss
+6.39:si si bar sexy architectures
+11.309:so in this memory memory one word is there are different products that is equal to 3 into 8 bit into 8 bit that will make 3 bytes 3 bytes make one word and there are toasters to raise to 20 memory locations that means there are two on7e is to 20 bytes that is equal to one megabyte
+37.77:now we see registers registers
+46.28:do some pneumonic codes
+50.64:a stands for register 0 that is actually later exchanged for one that is index register
+57.149:we have seen in the previous video
+59.91:L stands for register 2 this is linkage sister
+65.72:we are seen in the previous video
+71.1:B stands for base register this
+75.659:it holds the value of the base address and s T and F know s and T are in general registers and F stands for floating point accumulator
+89.1:and we have seen in si si
+94.11:there is no floating point but in this here floating point accumulator that is 48 bits next PC
+101.009:we are seen in the previous video that is program counter it counts
+111.45:it counts which feed bits instruction is running
+119.21:Chester V stands for status word which includes condition codes Exeter
+124.95:now we see the data formats
+133.05:there are three or four data

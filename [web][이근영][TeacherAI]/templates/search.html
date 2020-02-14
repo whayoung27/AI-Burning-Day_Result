@@ -1,0 +1,76 @@
+{% include "header.html"%}
+    
+    <link href="/static/css/search.css" rel="stylesheet" />
+
+    {% include "search_bar.html" %}
+
+    <div class="container">
+      
+      <div class="search_wrapper">
+        <p class="search_result_header">강의 Script</p>
+
+        {% for s in scripts %}
+
+        <div class="search_result">
+          
+            <div class="search_thumbnail_wrapper">
+              <a href="/video/{{s.video_id}}?start_time={{int(int(s.start_time)//1000)}}"><img src="/static/capture/{{s.video_id}}_{{int(int(s.start_time)//1000)}}.jpg"></a>
+            </div>
+            <div class="search_text">
+              <a href="/video/{{s.video_id}}?start_time={{int(int(s.start_time)//1000)}}"><p class="video_title">{{s.title}}</p></a>
+              <p class="time"> 시간대 <span>{{seconds_to_time(int(s.start_time)//1000)}} ~ {{seconds_to_time(int(s.end_time)//1000)}}</span></p>
+              <p class="txt">.... {{s.content}} ...</p>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+      </div>
+
+      <div class="search_wrapper">
+        <p class="search_result_header">강의 판서</p>
+
+        {% for o in ocr %}
+
+        <div class="search_result">
+          
+            <div class="search_thumbnail_wrapper">
+              <a href="/video/{{o.video_id}}?start_time={{int(int(o.start_time)//1000)}}"><img src="/static/capture/{{o.video_id}}_{{int(int(o.start_time)//1000)}}.jpg"></a>
+            </div>
+            <div class="search_text">
+              <a href="/video/{{o.video_id}}?start_time={{int(int(o.start_time)//1000)}}"><p class="video_title">{{o.title}}</p></a>
+              <p class="time">시간대 <span>{{seconds_to_time(int(o.start_time)//1000)}} ~ {{seconds_to_time(int(o.end_time)//1000)}}</span></p>
+              <p class="txt">.... {{o.content}} ...</p>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+
+
+
+  <script>
+    
+    $(function(){
+      $('.txt').each(function() { 
+        var me = $(this); 
+        me.html(me.text().replace('{{key}}','<strong>{{key}}</strong>')); 
+    }); 
+
+    });
+
+  </script>
+    
+  {% include "footer.html" %}
+
+
+
+
+

@@ -36,4 +36,4 @@ Pictorial은 스피드 그림 찾기 멀티플레이 웹 게임입니다.
 
 ## URI
 
-pictogram.puterism.com
+http://pictorial.puterism.com/

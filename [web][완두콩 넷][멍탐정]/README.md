@@ -40,8 +40,8 @@
 
 
 
-용량 문제로 깃헙 주소 첨부합니다.
-프론트 깃헙 주소 : https://github.com/gywls517/naver-ai-hackathon
-백 깃헙 주소 : https://gitlab.com/getveryrichet/naverhackathon
-서비스 주소 : https://naver-ai-hackathon.gywls517.now.sh - https://211.218.53.149:5000에 접속하셔서 안전하지 않음으로 접속하셔야 서비스가 제대로 구동됩니다.
+용량 문제로 깃헙 주소 첨부합니다.<br>
+프론트 깃헙 주소 : https://github.com/gywls517/naver-ai-hackathon <br>
+백 깃헙 주소 : https://gitlab.com/getveryrichet/naverhackathon <br>
+서비스 주소 : https://naver-ai-hackathon.gywls517.now.sh - https://211.218.53.149:5000에 접속하셔서 안전하지 않음을 선택한 후 서비스 주소로 접속하셔야 서비스가 제대로 구동됩니다. <br>
 

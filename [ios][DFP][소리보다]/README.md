@@ -25,6 +25,10 @@
 * 경고음 알림 기능이 작동되어 사이렌 소리 및 경적같은 경고음이 감지되면 Alert와 Notification으로 사용자에게 알려줍니다.
 * Background 에서도 작동이 가능하도록 진행하였습니다.
 
+### sound_classifier 구동 방법
+* export FLASK_APP=sound_classifier.py
+* flask run
+
 
 
 

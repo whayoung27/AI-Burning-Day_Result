@@ -6,6 +6,8 @@ Naver 인공지능 API를 활용한 발표 솔루션 웹 서비스<br/>
 ## Local Server URL
 http://10.83.32.215:9090/plt/login
 
+-> 10:54 서버 주소 변경 http://10.83.32.164:9090/plt/login
+
 
 
 ## Application Images

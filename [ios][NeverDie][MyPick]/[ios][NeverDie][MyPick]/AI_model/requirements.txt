@@ -6,5 +6,5 @@ matplotlib
 Pillow
 requests
 psutil
-tensorflow==1.2
+tensorflow==1.15.2
 pytube == 8.0.2

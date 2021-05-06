@@ -1,6 +1,6 @@
 Flask==1.1.1
 flask-restplus==0.12.1
-flask-cors==3.0.8
+flask-cors==3.0.9
 firebase-admin== 2.18.0
 gunicorn==19.9.0
 Werkzeug==0.16.1

@@ -13,7 +13,7 @@
     "i18next-browser-languagedetector": "^4.0.1",
     "i18next-xhr-backend": "^3.2.2",
     "js-cookie": "^2.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ramda": "^0.27.0",
     "react": "^16.12.0",
     "react-calendar": "^2.19.2",
